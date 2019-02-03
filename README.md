@@ -13,7 +13,7 @@ Women | BMR = (10 × weight in kg) + (6.25 × height in cm) - (5 × age in years
 Lifestyle | Example | PAL | Calculation
 --- | --- | --- | --- 
 No activity  | No any sport activities per week | 1.2 | BMR x 1.2
-Low activity  | 1 - 3 workout by 30 minuts per week | 1.375 | BMR x 1.375
+Low activity  | 1 - 3 workouts by 30 minuts per week | 1.375 | BMR x 1.375
 Sedentary or light activity | Office worker getting little | 1.53 | BMR x 1.53
 Active or moderately active | Construction worker or person running one hour daily | 1.76 | BMR x 1.76
 Vigorously active | Agricultural worker (non mechanized) or person swimming two hours daily | 2.25 | BMR x 2.25
