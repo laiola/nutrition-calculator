@@ -11,5 +11,5 @@ const calculateBMR = (weight, height, age, sex = FEMALE) =>
     + AGE_COEF * age
     + SexCoefficient[sex];
 
-export const calculateTotalIntake = (weight, height, age, sex, activity = NORMAL_ACTIVITY) => 
+export const calculateTotalIntake = ({ weight, height, age, sex, activity = NORMAL_ACTIVITY}) => 
     ActivityCoefficient[activity] * calculateBMR(weight, height, age, sex);
