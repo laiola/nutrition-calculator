@@ -14,10 +14,10 @@ const calculateBMR = (weight, height, age, sex = FEMALE) =>
 export const calculateTotalIntake = ({ weight, height, age, sex, activity = NORMAL_ACTIVITY}) => 
     ActivityCoefficient[activity] * calculateBMR(weight, height, age, sex);
 
-export const calculateMacronutrient = ({ totalIntake, weight, fatRatio, proteinRatio}) => {
+export const calculateMacronutrient = ({ goalIntake, weight, fatRatio, proteinRatio}) => {
     const fat = weight * fatRatio;
     const protein = weight * proteinRatio;
-    const carbohydrate = (totalIntake - fat * 9 - protein * 4) / 4;
+    const carbohydrate = (goalIntake - fat * 9 - protein * 4) / 4;
 
     return {
         fat,

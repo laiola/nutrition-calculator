@@ -5,6 +5,7 @@ import { calculateTotalIntake, calculateMacronutrient } from "././helper/nutriti
 import { FEMALE } from "./constant/Sex";
 import { NORMAL_ACTIVITY } from "./constant/Activity";
 import { ProteinRatio, FatRatio } from "./constant/NutritionRatio";
+import { GoalSelector } from "./components/goal-selector/GoalSelector";
 
 class App extends Component {
   constructor(props) {
@@ -16,8 +17,9 @@ class App extends Component {
       age: 0,
       sex: FEMALE,
       activity: NORMAL_ACTIVITY,
+      goal: 0.75,
       proteinRatio: ProteinRatio.RECOMMENDED_PROTEIN_RATIO,
-      fatRatio: FatRatio.RECOMMENDED_FAT_RATIO
+      fatRatio: FatRatio.RECOMMENDED_FAT_RATIO,
     };
   }
 
@@ -32,6 +34,16 @@ class App extends Component {
 
     this.setState({
       totalIntake: calculateTotalIntake(this.state)
+    });
+  };
+
+  handleSubmitGoal = event => {
+    event.preventDefault();
+
+    const { totalIntake, goal } = this.state;
+
+    this.setState({
+      goalIntake: totalIntake * goal
     });
   };
 
@@ -55,12 +67,18 @@ class App extends Component {
           handleSubmit={this.handleSubmitCharacteristics}
         />
         {
-          this.state.totalIntake && <NutitionRatioSelector
+          this.state.totalIntake && <GoalSelector
+            handleChange={this.handleChange}
+            handleSubmit={this.handleSubmitGoal}
+            />
+        }
+        {
+          this.state.goalIntake && <NutitionRatioSelector
             proteinRatio={this.state.proteinRatio}
             fatRatio={this.state.fatRatio}
             handleChange={this.handleChange}
             handleSubmit={this.handleSubmitNutritionRatio}
-          />
+            />
         }
       </div>
     );
