@@ -1,8 +1,10 @@
 import React, { Component } from "react";
 import { Characteristics } from "./components/characteristics/Characteristics";
-import { calculateTotalIntake } from "././helper/nutritionCalculator";
+import { NutitionRatioSelector } from "./components/nutrition-selector/NutitionRatioSelector";
+import { calculateTotalIntake, calculateMacronutrient } from "././helper/nutritionCalculator";
 import { FEMALE } from "./constant/Sex";
 import { NORMAL_ACTIVITY } from "./constant/Activity";
+import { ProteinRatio, FatRatio } from "./constant/NutritionRatio";
 
 class App extends Component {
   constructor(props) {
@@ -13,7 +15,9 @@ class App extends Component {
       height: 0,
       age: 0,
       sex: FEMALE,
-      activity: NORMAL_ACTIVITY
+      activity: NORMAL_ACTIVITY,
+      proteinRatio: ProteinRatio.RECOMMENDED_PROTEIN_RATIO,
+      fatRatio: FatRatio.RECOMMENDED_FAT_RATIO
     };
   }
 
@@ -23,18 +27,42 @@ class App extends Component {
     });
   };
 
-  handleSubmit = () => {
-    alert(calculateTotalIntake(this.state));
+  handleSubmitCharacteristics = event => {
+    event.preventDefault();
+
+    this.setState({
+      totalIntake: calculateTotalIntake(this.state)
+    });
+  };
+
+  handleSubmitNutritionRatio = event => {
+    event.preventDefault();
+
+    const macronutrient = calculateMacronutrient(this.state);
+    
+    this.setState({
+      ...macronutrient
+    });
   };
 
   render() {
     return (
-      <Characteristics
-        sex={this.state.sex}
-        activity={this.state.activity}
-        handleChange={this.handleChange}
-        handleSubmit={this.handleSubmit}
-      />
+      <div>
+        <Characteristics
+          sex={this.state.sex}
+          activity={this.state.activity}
+          handleChange={this.handleChange}
+          handleSubmit={this.handleSubmitCharacteristics}
+        />
+        {
+          this.state.totalIntake && <NutitionRatioSelector
+            proteinRatio={this.state.proteinRatio}
+            fatRatio={this.state.fatRatio}
+            handleChange={this.handleChange}
+            handleSubmit={this.handleSubmitNutritionRatio}
+          />
+        }
+      </div>
     );
   }
 }
