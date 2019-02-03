@@ -1,6 +1,24 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# Nutrtion Calculator
+The project is a simpe nutrition calculator that using [Harris–Benedict equation](https://en.wikipedia.org/wiki/Harris%E2%80%93Benedict_equation).
 
-## Available Scripts
+## Step 1. Individual's basal metabolic rate (BMR)
+
+Men:
+	BMR = (10 × weight in kg) + (6.25 × height in cm) - (5 × age in years) + 5
+Women:
+	BMR = (10 × weight in kg) + (6.25 × height in cm) - (5 × age in years) - 161
+
+## Step 2. Total Intake
+
+Lifestyle | Example | PAL | Calculation
+--- | --- | --- | --- 
+No activity  | No any sport activities per week | 1.2 | BMR x 1.2
+Low activity  | 1 - 3 workout by 30 minuts per week | 1.375 | BMR x 1.375
+Sedentary or light activity | Office worker getting little | 1.53 | BMR x 1.53
+Active or moderately active | Construction worker or person running one hour daily | 1.76 | BMR x 1.76
+Vigorously active | Agricultural worker (non mechanized) or person swimming two hours daily | 2.25 | BMR x 2.25
+
+# Available Scripts
 
 In the project directory, you can run:
 
