@@ -3,10 +3,8 @@ The project is a simpe nutrition calculator that using [Harris–Benedict equati
 
 ## Step 1. Individual's basal metabolic rate (BMR)
 
-Men:
-	BMR = (10 × weight in kg) + (6.25 × height in cm) - (5 × age in years) + 5
-Women:
-	BMR = (10 × weight in kg) + (6.25 × height in cm) - (5 × age in years) - 161
+Men | BMR = (10 × weight in kg) + (6.25 × height in cm) - (5 × age in years) + 5
+Women | BMR = (10 × weight in kg) + (6.25 × height in cm) - (5 × age in years) - 161
 
 ## Step 2. Total Intake
 
