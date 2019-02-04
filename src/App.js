@@ -1,16 +1,15 @@
 import React, { Component } from "react";
 import { Characteristics } from "./components/characteristics/Characteristics";
-import { NutitionRatioSelector } from "./components/nutrition-selector/NutitionRatioSelector";
 import { calculateTotalIntake, calculateMacronutrient } from "././helper/nutritionCalculator";
 import { FEMALE } from "./constant/Sex";
 import { NORMAL_ACTIVITY } from "./constant/Activity";
 import { ProteinRatio, FatRatio } from "./constant/NutritionRatio";
 import { GoalSelector } from "./components/goal-selector/GoalSelector";
+import { NutritionRatioSelector } from "./components/nutrition-selector/NutritionRatioSelector";
 import { NutritionDisplay } from "./components/nutrition-display/NutritionDisplay";
-
-//import "bootstrap/dist/css/bootstrap.css";
-import 'bootswatch/dist/minty/bootstrap.css';
 import { Header } from "./components/header/Header";
+
+import 'bootswatch/dist/minty/bootstrap.css';
 
 class App extends Component {
   constructor(props) {
@@ -81,7 +80,7 @@ class App extends Component {
             />
         }
         {
-          goalIntake && <NutitionRatioSelector
+          goalIntake && <NutritionRatioSelector
             proteinRatio={this.state.proteinRatio}
             fatRatio={this.state.fatRatio}
             handleChange={this.handleChange}

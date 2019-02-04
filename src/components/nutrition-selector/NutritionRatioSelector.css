@@ -1,0 +1,10 @@
+.nutrition-ratio-selector {
+    text-align: center;
+    width: 50%;
+    min-width: 470px;
+    margin: 0 auto;
+}
+
+.nutrition-ratio-selector .btn {
+    width: 150px;
+}
