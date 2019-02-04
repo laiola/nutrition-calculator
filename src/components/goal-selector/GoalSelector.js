@@ -1,4 +1,7 @@
 import React from 'react';
+import { Form, Button } from "react-bootstrap";
+
+import './GoalSelector.css';
 
 const goals = [
     {key: 0.75, value: 'Lose weight (25%)'},
@@ -13,19 +16,22 @@ const goals = [
 export const GoalSelector = props => {
     return (
         <div className="goal-selector">
-            <form onSubmit={props.handleSubmit}>
-                <label>
-                    Select your goal:
-                    <select onChange={props.handleChange} name="goal">
+            <Form onSubmit={props.handleSubmit}>
+                <legend>Step 2. Goal</legend>
+                <Form.Group>
+                    <Form.Label>Select your goal:</Form.Label>
+                    <Form.Control as="select" onChange={props.handleChange} name="goal">
                         {
                             goals.map((value, i) => 
                                 <option key={i} value={value.key}>{value.value}</option>
                             )
                         }
-                    </select>
-                </label>
-                <input type="submit" value="Submit"/>
-            </form>
+                    </Form.Control>
+                </Form.Group>
+                <Button variant="primary" type="submit">
+                    Submit
+                </Button>
+            </Form>
         </div>
     );
 };
