@@ -29,7 +29,7 @@ export const NutritionCard = ({title, value}) => {
         <div className="card text-white text-center bg-primary mb-3">
             <div className="card-header">{title}</div>
             <div className="card-body">
-                <h4 className="card-title">{Math.round(value)}</h4>
+                <h4 className="card-title">{value}</h4>
             </div>
         </div>
     );

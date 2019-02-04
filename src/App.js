@@ -47,7 +47,7 @@ class App extends Component {
     const { totalIntake, goal } = this.state;
 
     this.setState({
-      goalIntake: totalIntake * goal
+      goalIntake: Math.round(totalIntake * goal)
     });
   };
 
