@@ -14,7 +14,6 @@ export const Header = props => {
             <Navbar.Brand>
                 <a href="/">{icon} Nutrition calculator</a>
             </Navbar.Brand>
-            <Navbar.Toggle />
         </Navbar>
     );
 };

@@ -1,0 +1,10 @@
+.characteristics {
+    text-align: center;
+    width: 50%;
+    min-width: 470px;
+    margin: 0 auto;
+}
+
+.characteristics .btn {
+    width: 150px;
+}
