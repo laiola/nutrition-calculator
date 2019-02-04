@@ -1,36 +1,28 @@
 import React from "react";
-import { Container, Row, Col } from "react-bootstrap";
+import { CardDeck, Card } from "react-bootstrap";
+
+import './NutritionDisplay.css';
 
 export const NutritionDisplay = ({intake, protein, fat, carbohydrate}) => {
     return (
         <div className="nutrition-display">
-            <Container>
-                <Row>
-                    <Col md={3}>
-                        <NutritionCard title="Goal Protein" value={protein}/>
-                    </Col>
-                    <Col md={3}>
-                        <NutritionCard title="Goal Fat" value={fat}/>
-                    </Col>
-                    <Col md={3}>
-                        <NutritionCard title="Goal Carbohydrate" value={carbohydrate}/>
-                    </Col>
-                    <Col md={3}>
-                        <NutritionCard title="Goal Intake" value={intake}/>
-                    </Col>
-                </Row>
-            </Container>
+            <CardDeck>
+                <NutritionCard title="Goal Protein" value={protein}/>
+                <NutritionCard title="Goal Fat" value={fat}/>
+                <NutritionCard title="Goal Carbohydrate" value={carbohydrate}/>
+                <NutritionCard title="Goal Intake" value={intake}/>
+            </CardDeck>
         </div>
     );
 };
 
 export const NutritionCard = ({title, value}) => {
     return (  
-        <div className="card text-white text-center bg-primary mb-3">
-            <div className="card-header">{title}</div>
-            <div className="card-body">
-                <h4 className="card-title">{value}</h4>
-            </div>
-        </div>
+        <Card bg="primary" text="white" className="text-center mb-3">
+            <Card.Header>{title}</Card.Header>
+            <Card.Body>
+                 <Card.Title as="h4">{value}</Card.Title>
+            </Card.Body>
+        </Card>
     );
 }
