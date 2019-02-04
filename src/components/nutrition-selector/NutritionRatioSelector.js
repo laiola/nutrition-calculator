@@ -12,7 +12,7 @@ export const NutritionRatioSelector = props => {
                 <legend>Step 3. Choose your nutrition ratio</legend>
                 <Form.Group>
                     <Form.Label>Pick protein weight per kilogram of your weight:</Form.Label>
-                    <Form.Control as="select" onChange={props.handleChange} name="proteinRatio">
+                    <Form.Control as="select" value={props.proteinRatio} onChange={props.handleChange} name="proteinRatio">
                         {
                             Object.values(ProteinRatio).map((value, i) => 
                                 <option key={i} value={value}>{value}</option>
@@ -22,7 +22,7 @@ export const NutritionRatioSelector = props => {
                 </Form.Group>
                 <Form.Group>
                     <Form.Label>Pick fat weight per kilogram of your weight:</Form.Label>
-                    <Form.Control as="select" onChange={props.handleChange} name="fatRatio">
+                    <Form.Control as="select" value={props.fatRatio} onChange={props.handleChange} name="fatRatio">
                         {
                             Object.values(FatRatio).map((value, i) => 
                                 <option key={i} value={value}>{value}</option>
