@@ -10,6 +10,7 @@ import { NutritionDisplay } from "./components/nutrition-display/NutritionDispla
 
 //import "bootstrap/dist/css/bootstrap.css";
 import 'bootswatch/dist/minty/bootstrap.css';
+import { Header } from "./components/header/Header";
 
 class App extends Component {
   constructor(props) {
@@ -66,6 +67,7 @@ class App extends Component {
 
     return (
       <div>
+        <Header/>
         <Characteristics
           sex={this.state.sex}
           activity={this.state.activity}
