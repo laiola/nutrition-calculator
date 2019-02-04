@@ -6,6 +6,10 @@ import { FEMALE } from "./constant/Sex";
 import { NORMAL_ACTIVITY } from "./constant/Activity";
 import { ProteinRatio, FatRatio } from "./constant/NutritionRatio";
 import { GoalSelector } from "./components/goal-selector/GoalSelector";
+import { NutritionDisplay } from "./components/nutrition-display/NutritionDisplay";
+
+//import "bootstrap/dist/css/bootstrap.css";
+import 'bootswatch/dist/minty/bootstrap.css';
 
 class App extends Component {
   constructor(props) {
@@ -58,6 +62,8 @@ class App extends Component {
   };
 
   render() {
+    const { totalIntake, goalIntake, protein, fat, carbohydrate } = this.state;
+
     return (
       <div>
         <Characteristics
@@ -67,17 +73,25 @@ class App extends Component {
           handleSubmit={this.handleSubmitCharacteristics}
         />
         {
-          this.state.totalIntake && <GoalSelector
+          totalIntake && <GoalSelector
             handleChange={this.handleChange}
             handleSubmit={this.handleSubmitGoal}
             />
         }
         {
-          this.state.goalIntake && <NutitionRatioSelector
+          goalIntake && <NutitionRatioSelector
             proteinRatio={this.state.proteinRatio}
             fatRatio={this.state.fatRatio}
             handleChange={this.handleChange}
             handleSubmit={this.handleSubmitNutritionRatio}
+            />
+        }
+        {
+          goalIntake && protein && fat && carbohydrate && <NutritionDisplay
+            intake={goalIntake}
+            protein={protein}
+            fat={fat}
+            carbohydrate={carbohydrate}
             />
         }
       </div>
