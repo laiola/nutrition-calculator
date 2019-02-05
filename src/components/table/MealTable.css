@@ -1,0 +1,19 @@
+.main-table {
+    text-align: center;
+    width: 50%;
+    min-width: 700px;
+    margin: 20px auto;
+    padding: 5px;
+    border: 1px solid #ced4da;
+    border-radius: 0.4rem;
+}
+
+.table-cell {
+    display: inline-block;
+    margin: 20px;
+}
+
+.table-header {
+    font-family: "Montserrat", -apple-system, system-ui, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    font-weight: bold;
+}
