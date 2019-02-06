@@ -1,9 +1,10 @@
 import React, { Component } from 'react';
+import { Table } from 'react-bootstrap';
 import EatingContainer from '../container/EatingContainer';
 
 import './MealTable.css';
 
-const headers = ['Title', 'Weight', 'Protein', 'Fat', 'Carbohydrate', 'Calorie', 'Edit Nutrition'];
+const headers = ['Title', 'Weight', 'P', 'F', 'C', 'Calorie', 'Edit Nutrition'];
 const eatings = ['Breakfast', 'Lunch', 'Snack', 'Dinner'];
 const initialEatingContainer = {
     protein: 0,
@@ -36,36 +37,29 @@ class MealTable extends Component {
     render() {
         return (
             <div className="main-table">
-                <TableRow values={headers} rowClass="table-header" cellClass="table-cell"/>
-                {
-                    this.state.eatingContainers.map((value, i) => 
-                        <EatingContainer key={i + value} title={value.value}
-                            onRemove={this.onRemoveEatingContainer}/>
-                    )
-                }
+                <Table>
+                    <thead>
+                        <tr>
+                        {
+                            headers.map((header, i) => 
+                                <th key={i + header}>{header}</th>
+                            )
+                        }
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {
+                            this.state.eatingContainers.map((value, i) => 
+                                <EatingContainer key={i} title={value.value}
+                                    onRemove={this.onRemoveEatingContainer}/>
+                            )
+                        }
+                    </tbody>
+                </Table>
+
             </div>
         ) 
     }
 };
 
 export default MealTable;
-
-export const TableRow = ({ values, rowClass, cellClass, }) => {
-    return (
-        <div className={rowClass}>
-            {
-                values.map((value, i) => 
-                    <TableCell key={i} value={value} className={cellClass}/> 
-                )
-            }
-        </div>
-    ) 
-};
-
-export const TableCell = ({ value, className, }) =>{
-    return (
-        <div className={className}>
-            {value}
-        </div>
-    ) 
-}

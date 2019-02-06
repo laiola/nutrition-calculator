@@ -1,29 +1,62 @@
 import React, { Component } from 'react';
-
-import './EatingContainer.css';
+import ProductModal from '../modal/ProductModal';
 
 class EatingContainer extends Component {
-    onClear = () => {
-        // todo
+    constructor(props) {
+        super(props);
+
+        this.state = {
+            rows: [],
+        }
+    }
+
+    onAdd = (row) => {
+        const rows = [...this.state.rows, row];
+
+        this.setState({
+            rows: rows,
+        });
     };
 
-    onRemove = title => () => {
-        this.props.onRemove(title);
-    };
+    onClear = () => {
+        this.setState({
+            rows: [],
+        });
+    }
 
     render() {
         return (
-            <div className="eating">
-                <div className="eating-title">{this.props.title}</div>
-                <div className="eating-buttons">
-                    <button className="btn btn-warning clear-eating" 
-                        onClick={this.onClear}>clear</button>
-                    <button className="btn btn-danger delete-eating"
-                        onClick={this.onRemove(this.props.title)}>delete</button> 
-                </div>
-            </div>
+            <>
+                <tr>
+                    <td rowSpan="2" colSpan="6">{this.props.title}</td>
+                    <td><ProductModal onSubmit={this.onAdd}/></td>
+                </tr>
+                <tr>
+                    <td>
+                        <button className="btn btn-danger" onClick={this.onClear}>Clear</button>
+                    </td>
+                </tr>
+                {
+                    this.state.rows.map( (value, i) =>
+                        <ProductRow key={i} values={Object.values(value)}/>)
+                }
+            </>
         ) 
     }
 }
 
 export default EatingContainer;
+
+const ProductRow = ({ values, onAction: onClick }) => {
+    return (
+        <tr>
+            {
+                values.map((value, i) => <td key={i + value}>{value}</td>)
+            }
+            <td>
+                <button type="button" className="btn btn-outline-info"
+                    onClick={onClick}>Edit</button>
+            </td>
+        </tr>
+    )
+}

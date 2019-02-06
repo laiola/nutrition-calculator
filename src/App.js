@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import MealTable from "./components/table/MealTable";
 import { Characteristics } from "./components/characteristics/Characteristics";
 import { calculateTotalIntake, calculateMacronutrient } from "././helper/nutritionCalculator";
 import { FEMALE } from "./constant/Sex";
@@ -10,7 +11,6 @@ import { NutritionDisplay } from "./components/nutrition-display/NutritionDispla
 import { Header } from "./components/header/Header";
 
 import 'bootswatch/dist/minty/bootstrap.css';
-import MealTable from "./components/table/MealTable";
 
 class App extends Component {
   constructor(props) {
