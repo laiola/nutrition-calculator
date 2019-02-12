@@ -5,19 +5,19 @@ import EatingContainer from '../container/EatingContainer';
 import './MealTable.css';
 
 const headers = ['Title', 'Weight', 'P', 'F', 'C', 'Calorie', 'Edit Nutrition'];
-const eatings = ['Breakfast', 'Lunch', 'Snack', 'Dinner'];
 const initialEatingContainer = {
     protein: 0,
     fat : 0,
     carbohydrate: 0,
-    weight: 0,
     calorie: 0
 };
 
-const initialEatingContainers = eatings.map(value => ({
-    value,
-    ...initialEatingContainer
-}));
+const initialEatingContainers = [
+    {key: 'Breakfast', value: {...initialEatingContainer}},
+    {key: 'Lunch', value: {...initialEatingContainer}},
+    {key: 'Snack', value: {...initialEatingContainer}},
+    {key: 'Dinner', value: {...initialEatingContainer}},
+];
 
 class MealTable extends Component {
     constructor(props) {
@@ -30,11 +30,41 @@ class MealTable extends Component {
 
     onRemoveEatingContainer = title => {
         this.setState({
-            eatingContainers : this.state.eatingContainers.filter(el => el.value !== title)
+            eatingContainers : this.state.eatingContainers.filter(el => el.key !== title)
         });
     };
 
+    onChangeEatingContainer = (title, nutritions) => {
+        const eatingContainersCopy = [...this.state.eatingContainers];
+        const currentContainerIndex = eatingContainersCopy.findIndex(container => container.key === title);
+        const currentContainer = eatingContainersCopy[currentContainerIndex];
+        const currentNutrition = currentContainer.value;
+
+        currentNutrition.protein += nutritions[0];
+        currentNutrition.fat += nutritions[1];
+        currentNutrition.carbohydrate += nutritions[2];
+        currentNutrition.calorie += nutritions[3];
+
+        const reducer = (accumulator, currentValue) => {
+            const nutrition = currentValue.value;
+
+            accumulator.protein += nutrition.protein;
+            accumulator.fat += nutrition.fat;
+            accumulator.carbohydrate += nutrition.carbohydrate;
+            accumulator.calorie += nutrition.calorie;
+
+            return accumulator;
+        };
+
+        this.setState({
+            eatingContainers : eatingContainersCopy,
+            totalNutrition: eatingContainersCopy.reduce(reducer, initialEatingContainer)
+        });        
+    };
+
     render() {
+        const { protein = 0, fat = 0, carbohydrate = 0, calorie = 0 } = this.state.totalNutrition || initialEatingContainer;
+        
         return (
             <div className="main-table">
                 <Table>
@@ -49,14 +79,23 @@ class MealTable extends Component {
                     </thead>
                     <tbody>
                         {
-                            this.state.eatingContainers.map((value, i) => 
-                                <EatingContainer key={i} title={value.value}
-                                    onRemove={this.onRemoveEatingContainer}/>
+                            this.state.eatingContainers.map((container, i) => 
+                                <EatingContainer key={i} title={container.key}
+                                    onRemove={this.onRemoveEatingContainer}
+                                    onChange={this.onChangeEatingContainer}/>
                             )
                         }
+                        <tr>
+                            <td></td>
+                            <td></td>
+                            <td>{protein}</td>
+                            <td>{fat}</td>
+                            <td>{carbohydrate}</td>
+                            <td>{calorie}</td>
+                            <td></td>
+                        </tr>
                     </tbody>
                 </Table>
-
             </div>
         ) 
     }

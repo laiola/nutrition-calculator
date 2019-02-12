@@ -17,3 +17,15 @@
     font-family: "Montserrat", -apple-system, system-ui, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
     font-weight: bold;
 }
+
+.table-cell-success {
+    background-color: rgb(86, 204, 157);
+    border-color: rgb(167, 228, 204);
+    color: rgb(255, 255, 255);
+}
+
+.table-cell-danger {
+    background-color: rgb(255, 120, 81);
+    border-color: rgb(255, 185, 165);
+    color: rgb(255, 255, 255);
+}
