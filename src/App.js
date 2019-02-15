@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import MealTable from "./components/table/MealTable";
+import TempTable from "./components/table/TempTable";
 import { Characteristics } from "./components/characteristics/Characteristics";
 import { calculateTotalIntake, calculateMacronutrient } from "././helper/nutritionCalculator";
 import { FEMALE } from "./constant/Sex";
@@ -68,7 +68,7 @@ class App extends Component {
     return (
       <div>
         <Header/>
-        <MealTable/>
+        <TempTable/>
         <Characteristics
           sex={this.state.sex}
           activity={this.state.activity}
