@@ -69,6 +69,7 @@ class TempTable extends Component {
     };
 
     // todo refactore? 
+    // todo update total after adding from product select
     getUpdatedRows = (i, event) => {
         const updatedRows = [...this.state.rows];
         

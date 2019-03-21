@@ -26,6 +26,7 @@ export const calculateMacronutrient = ({ goalIntake, weight, fatRatio, proteinRa
     }
 };
 
+// todo round
 export const calculateNutritionByWeight = product => {
     const newProduct = {...product};
     const weightCoef = product.weight / 100;

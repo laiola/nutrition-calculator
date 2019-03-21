@@ -1,11 +1,12 @@
 import React, { Component } from 'react';
-import { Form, Row, Col } from "react-bootstrap";
+import { Form } from "react-bootstrap";
 
 import ProductModal from '../modal/ProductModal';
 
 import './ProductSelect.css';
 
 const defaultIndex = 0;
+const PRODUCTS_KEY = 'products';
 
 class ProductSelect extends Component {
     static defaultProps = {
@@ -19,6 +20,15 @@ class ProductSelect extends Component {
             selectedIndex: defaultIndex,
             isDisplayedProductModal: false,
         }
+    }
+
+    componentDidMount() {
+        const { products } = this.state;
+        const storedProducts = JSON.parse(localStorage.getItem(PRODUCTS_KEY)) || [];
+
+        this.setState({
+            products: [...products, ...storedProducts],
+        })
     }
 
     onAddProduct = () => {
@@ -45,7 +55,7 @@ class ProductSelect extends Component {
 
         this.setState({
             products: newProducts,
-        })
+        }, () => localStorage.setItem(PRODUCTS_KEY, JSON.stringify(newProducts.slice(1)))); 
     }
 
     onChange = event => {
@@ -93,34 +103,3 @@ class ProductSelect extends Component {
 }
 
 export default ProductSelect;
-
-/*
-<Form.Group>
-                        <Col>
-                            <Form.Label htmlFor="product-select" className="lead">Select a product:</Form.Label>
-                        </Col>
-                        <Col>
-                            <button className="btn btn-secondary" type="button" onClick={this.onAddProduct}>Add Product</button>
-                        </Col>
-                    </Form.Group>
-                    <Form.Row>
-                        <Col>
-                            <Form.Control as="select" className="product-select" 
-                                    id="product-select" 
-                                    onChange={this.onChange}
-                                    value={selectedIndex}
-                                    title={products[selectedIndex].title}>
-                                {
-                                    products.map((product, id) => 
-                                        <option key={`${id}-${product.title}`} value={id}>
-                                            {product.title}
-                                        </option>
-                                    )
-                                }
-                            </Form.Control>
-                        </Col>
-                        <Col>
-                            <button className="btn btn-primary" type="button" onClick={this.onAddProductToTable}>Add To Table</button>
-                        </Col>
-                    </Form.Row>
-*/
