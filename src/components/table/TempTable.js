@@ -1,6 +1,9 @@
 import React, { Component } from 'react';
 import { Table } from 'react-bootstrap';
 
+import ProductSelect from './ProductSelect';
+import { calculateNutritionByWeight } from '../../helper/nutritionCalculator';
+
 const initialRow = {
     title: 'Input title',
     weight: 0,
@@ -47,8 +50,15 @@ class TempTable extends Component {
         })
     };
 
+    onAddPresetRow = product => {
+        const { rows } = this.state;
+        this.setState({
+            rows: [...rows, {...product}]
+        })
+    };
+
     onChangeRow = i => event => {
-        const updatedRows = this.getUpdatetRows(i, event);
+        const updatedRows = this.getUpdatedRows(i, event);
 
         this.setState({
             rows: updatedRows,
@@ -56,34 +66,18 @@ class TempTable extends Component {
         })
     };
 
-    getUpdatetRows = (i, event) => {
+    // todo refactore? 
+    getUpdatedRows = (i, event) => {
         const updatedRows = [...this.state.rows];
-        const row = updatedRows[i];
+        
+        const row = updatedRows[i]; // maybe get update row?
+        
         row[event.target.getAttribute('name')] = event.target.innerText;
 
-        const weightCoef = row.weight / 100;
-
-        row.protein = weightCoef * row.proteinPer;
-        row.fat = weightCoef * row.fatPer;
-        row.carbohydrate = weightCoef * row.carbohydratePer;
-        row.calorie = weightCoef * row.caloriePer;   
+        updatedRows[i] = calculateNutritionByWeight(row); 
 
         return updatedRows;
     };
-
-    /*
-            return {
-            protein: nutrition.protein.toFixed(1),
-            fat: nutrition.fat.toFixed(1),
-            carbohydrate: nutrition.carbohydrate.toFixed(1),
-            calorie: nutrition.calorie.toFixed(1),
-
-            protein: Math.round(nutrition.protein),
-            fat: Math.round(nutrition.fat),
-            carbohydrate: Math.round(nutrition.carbohydrate),
-            calorie: Math.round(nutrition.calorie),
-        }
-    */
 
     getUpdatedNutrition = (rows) => {
         const nutrition = rows.reduce(nutritionReducer, {...initialTotal});
@@ -98,9 +92,12 @@ class TempTable extends Component {
 
     render() {
         const { rows, protein, fat, carbohydrate, calorie, } = this.state;
+        const { goalIntake = 0, goalProtein = 0, goalFat = 0, goalCarbohydrate = 0 } = this.props;
+        
         return(
             <>
                 <button className="btn btn-info" onClick={this.onAddRow}>Add row</button>
+                <ProductSelect onSelect={this.onAddPresetRow}/>
                 <Table striped bordered hover>
                     <thead>
                         <tr>
@@ -139,12 +136,24 @@ class TempTable extends Component {
                             )
                        }
                        <tr>
-                            <td></td>
+                            <td>Total</td>
                             <td></td>
                             <td>{protein}</td>
                             <td>{fat}</td>
                             <td>{carbohydrate}</td>
                             <td>{calorie}</td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td>Goal</td>
+                            <td></td>
+                            <td>{goalProtein}</td>
+                            <td>{goalFat}</td>
+                            <td>{goalCarbohydrate}</td>
+                            <td>{goalIntake}</td>
                             <td></td>
                             <td></td>
                             <td></td>

@@ -25,3 +25,15 @@ export const calculateMacronutrient = ({ goalIntake, weight, fatRatio, proteinRa
         carbohydrate
     }
 };
+
+export const calculateNutritionByWeight = product => {
+    const newProduct = {...product};
+    const weightCoef = product.weight / 100;
+
+    newProduct.protein = weightCoef * product.proteinPer;
+    newProduct.fat = weightCoef * product.fatPer;
+    newProduct.carbohydrate = weightCoef * product.carbohydratePer;
+    newProduct.calorie = weightCoef * product.caloriePer;
+
+    return newProduct;
+}

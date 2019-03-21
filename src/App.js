@@ -68,7 +68,6 @@ class App extends Component {
     return (
       <div>
         <Header/>
-        <TempTable/>
         <Characteristics
           sex={this.state.sex}
           activity={this.state.activity}
@@ -96,6 +95,13 @@ class App extends Component {
             fat={fat}
             carbohydrate={carbohydrate}
             />
+        }
+        {
+          goalIntake && protein && fat && carbohydrate && <TempTable
+            goalIntake={goalIntake}
+            goalProtein={protein}
+            goalFat={fat}
+            goalCarbohydrate={carbohydrate}/>
         }
       </div>
     );

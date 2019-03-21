@@ -1,0 +1,11 @@
+.product-select-form {
+    text-align: center;
+    width: 50%;
+    min-width: 470px;
+    margin: 20px auto;
+}
+
+.product-select-form .btn {
+    width: 150px;
+    align-self: center;
+}
