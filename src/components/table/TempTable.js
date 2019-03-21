@@ -4,6 +4,8 @@ import { Table } from 'react-bootstrap';
 import ProductSelect from './ProductSelect';
 import { calculateNutritionByWeight } from '../../helper/nutritionCalculator';
 
+import './Table.css';
+
 const initialRow = {
     title: 'Input title',
     weight: 0,
@@ -96,8 +98,10 @@ class TempTable extends Component {
         
         return(
             <>
-                <button className="btn btn-info" onClick={this.onAddRow}>Add row</button>
                 <ProductSelect onSelect={this.onAddPresetRow}/>
+                <div className="btn-container">
+                    <button className="btn btn-info add-row-btn" onClick={this.onAddRow}>Add row</button>
+                </div>
                 <Table striped bordered hover>
                     <thead>
                         <tr>

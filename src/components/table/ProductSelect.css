@@ -1,11 +1,22 @@
+.product-select {
+    display: inline-block;
+}
+
 .product-select-form {
     text-align: center;
     width: 50%;
     min-width: 470px;
-    margin: 20px auto;
+    margin: 15px;
 }
 
 .product-select-form .btn {
-    width: 150px;
-    align-self: center;
+    width: 230px;
+}
+
+.product-select-form .btn-secondary {
+    margin-right: 5px;
+}
+
+.product-select-form .btn-primary {
+    margin-left: 5px;
 }

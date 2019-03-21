@@ -1,0 +1,14 @@
+.add-row-btn {
+    width: 230px;
+    align-self: center;
+
+    /* TODO FIX WHEN LOW WIDTH */
+    right: 0;
+    bottom: 0;
+    position: absolute;
+    margin: 16px;
+}
+
+.btn-container {
+    position: relative;
+}

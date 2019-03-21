@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Form, Row } from "react-bootstrap";
+import { Form, Row, Col } from "react-bootstrap";
 
 import ProductModal from '../modal/ProductModal';
 
@@ -58,7 +58,7 @@ class ProductSelect extends Component {
     render() {
         const { isDisplayedProductModal, products, selectedIndex } = this.state;
         return (
-            <div>
+            <div className="product-select">
                 { 
                     isDisplayedProductModal
                     && <ProductModal onSubmit={this.onSubmit} 
@@ -66,11 +66,8 @@ class ProductSelect extends Component {
                                      isDisplayedProductModal={isDisplayedProductModal}/>
                 }
                 <Form className="product-select-form">
-                    <Form.Group as={Row}>
-                        <button className="btn btn-secondary" type="button" onClick={this.onAddProduct}>Add Product</button>
-                    </Form.Group>
-                    <Form.Group as={Row}>
-                        <Form.Label htmlFor="product-select">Select a product:</Form.Label>
+                    <Form.Group>
+                        <Form.Label htmlFor="product-select" className="lead">Select a product:</Form.Label>
                         <Form.Control as="select" className="product-select" 
                                 id="product-select" 
                                 onChange={this.onChange}
@@ -85,7 +82,8 @@ class ProductSelect extends Component {
                             }
                         </Form.Control>
                     </Form.Group>
-                    <Form.Group as={Row}>
+                    <Form.Group>
+                        <button className="btn btn-secondary" type="button" onClick={this.onAddProduct}>Add Product</button>
                         <button className="btn btn-primary" type="button" onClick={this.onAddProductToTable}>Add To Table</button>
                     </Form.Group>
                 </Form>
@@ -95,3 +93,34 @@ class ProductSelect extends Component {
 }
 
 export default ProductSelect;
+
+/*
+<Form.Group>
+                        <Col>
+                            <Form.Label htmlFor="product-select" className="lead">Select a product:</Form.Label>
+                        </Col>
+                        <Col>
+                            <button className="btn btn-secondary" type="button" onClick={this.onAddProduct}>Add Product</button>
+                        </Col>
+                    </Form.Group>
+                    <Form.Row>
+                        <Col>
+                            <Form.Control as="select" className="product-select" 
+                                    id="product-select" 
+                                    onChange={this.onChange}
+                                    value={selectedIndex}
+                                    title={products[selectedIndex].title}>
+                                {
+                                    products.map((product, id) => 
+                                        <option key={`${id}-${product.title}`} value={id}>
+                                            {product.title}
+                                        </option>
+                                    )
+                                }
+                            </Form.Control>
+                        </Col>
+                        <Col>
+                            <button className="btn btn-primary" type="button" onClick={this.onAddProductToTable}>Add To Table</button>
+                        </Col>
+                    </Form.Row>
+*/
