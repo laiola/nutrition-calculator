@@ -1,14 +1,20 @@
-import React, { Component } from "react";
-import TempTable from "./components/table/TempTable";
-import { Characteristics } from "./components/characteristics/Characteristics";
-import { calculateTotalIntake, calculateMacronutrient } from "././helper/nutritionCalculator";
-import { FEMALE } from "./constant/Sex";
-import { NORMAL_ACTIVITY } from "./constant/Activity";
-import { ProteinRatio, FatRatio } from "./constant/NutritionRatio";
-import { GoalSelector } from "./components/goal-selector/GoalSelector";
-import { NutritionRatioSelector } from "./components/nutrition-selector/NutritionRatioSelector";
-import { NutritionDisplay } from "./components/nutrition-display/NutritionDisplay";
-import { Header } from "./components/header/Header";
+import React, { Component } from 'react';
+import { HashRouter,  Route, Switch } from 'react-router-dom'
+
+import TempTable from './components/table/TempTable';
+import Calculator from './components/tab/Calculator';
+import Menu from './components/tab/Menu';
+import Products from './components/tab/Products';
+import About from './components/tab/About';
+import NotFoundPage from './components/tab/NotFoundPage';
+import { Characteristics } from './components/characteristics/Characteristics';
+import { calculateTotalIntake, calculateMacronutrient } from '././helper/nutritionCalculator';
+import { FEMALE } from './constant/Sex';
+import { NORMAL_ACTIVITY } from './constant/Activity';
+import { ProteinRatio, FatRatio } from './constant/NutritionRatio';
+import { GoalSelector } from './components/goal-selector/GoalSelector';
+import { NutritionRatioSelector } from './components/nutrition-selector/NutritionRatioSelector';
+import { NutritionDisplay } from './components/nutrition-display/NutritionDisplay';
 
 import 'bootswatch/dist/minty/bootstrap.css';
 
@@ -66,44 +72,53 @@ class App extends Component {
     const { totalIntake, goalIntake, protein, fat, carbohydrate } = this.state;
 
     return (
-      <div>
-        <Header/>
-        <Characteristics
-          sex={this.state.sex}
-          activity={this.state.activity}
-          handleChange={this.handleChange}
-          handleSubmit={this.handleSubmitCharacteristics}
-        />
-        {
-          totalIntake && <GoalSelector
-            handleChange={this.handleChange}
-            handleSubmit={this.handleSubmitGoal}
+      <HashRouter>
+        <Switch>
+          <Route path="/calculator" component={Calculator}/>
+          <Route path="/menu" component={Menu}/>
+          <Route path="/products" component={Products}/>
+          <Route path="/about" component={About}/>
+          <Route component={NotFoundPage}/>
+        </Switch>
+
+        <div>
+            <Characteristics
+              sex={this.state.sex}
+              activity={this.state.activity}
+              handleChange={this.handleChange}
+              handleSubmit={this.handleSubmitCharacteristics}
             />
-        }
-        {
-          goalIntake && <NutritionRatioSelector
-            proteinRatio={this.state.proteinRatio}
-            fatRatio={this.state.fatRatio}
-            handleChange={this.handleChange}
-            handleSubmit={this.handleSubmitNutritionRatio}
-            />
-        }
-        {
-          goalIntake && protein && fat && carbohydrate && <NutritionDisplay
-            intake={goalIntake}
-            protein={protein}
-            fat={fat}
-            carbohydrate={carbohydrate}
-            />
-        }
-        {
-          goalIntake && protein && fat && carbohydrate && <TempTable
-            goalIntake={goalIntake}
-            goalProtein={protein}
-            goalFat={fat}
-            goalCarbohydrate={carbohydrate}/>
-        }
-      </div>
+            {
+              totalIntake && <GoalSelector
+                handleChange={this.handleChange}
+                handleSubmit={this.handleSubmitGoal}
+                />
+            }
+            {
+              goalIntake && <NutritionRatioSelector
+                proteinRatio={this.state.proteinRatio}
+                fatRatio={this.state.fatRatio}
+                handleChange={this.handleChange}
+                handleSubmit={this.handleSubmitNutritionRatio}
+                />
+            }
+            {
+              goalIntake && protein && fat && carbohydrate && <NutritionDisplay
+                intake={goalIntake}
+                protein={protein}
+                fat={fat}
+                carbohydrate={carbohydrate}
+                />
+            }
+            {
+              goalIntake && protein && fat && carbohydrate && <TempTable
+                goalIntake={goalIntake}
+                goalProtein={protein}
+                goalFat={fat}
+                goalCarbohydrate={carbohydrate}/>
+            }
+          </div>
+      </HashRouter>
     );
   }
 }

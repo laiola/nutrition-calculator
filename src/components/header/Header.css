@@ -3,3 +3,31 @@
     width: 6%;
     border: 1px solid #78C2AD;
 }
+
+.navbar-light .navbar-nav .color-link {
+    color: #78C2AD;
+}
+
+.navbar-expand .navbar-nav .color-link {
+    padding-right: 0.5rem;
+    padding-left: 0.5rem;
+}
+
+.nav-tabs .color-link {
+    border: 1px solid transparent;
+    border-top-left-radius: 0.4rem;
+    border-top-right-radius: 0.4rem;
+}
+
+.nav-tabs .color-link:hover, .no-link-underline:hover {
+    text-decoration: none;
+    color: #4aa48a;
+    border-color: #f7f7f9 #f7f7f9 #eceeef;
+}
+
+.color-link {
+    display: block;
+    padding: 0.5rem 1rem;
+}
+
+/* TODO ACTIVE TAB AND LINK */
