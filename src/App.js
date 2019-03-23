@@ -82,7 +82,7 @@ class App extends Component {
         </Switch>
 
         <div>
-            <Characteristics
+            {/* <Characteristics
               sex={this.state.sex}
               activity={this.state.activity}
               handleChange={this.handleChange}
@@ -109,7 +109,7 @@ class App extends Component {
                 fat={fat}
                 carbohydrate={carbohydrate}
                 />
-            }
+            } */}
             {
               goalIntake && protein && fat && carbohydrate && <TempTable
                 goalIntake={goalIntake}
