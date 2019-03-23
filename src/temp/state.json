@@ -4,15 +4,16 @@
         "height": 0,
         "age": 0,
         "sex": "FEMALE", 
-        "activity": "NORMAL_ACTIVITY"
+        "activity": "NORMAL_ACTIVITY",
+        "totalIntake": 0
     },
-    "goal": 0.75,
-    "nutritionRatio": {
+    "goal": {
+        "goalRatio": 1,
+        "goalIntake": 0
+    },
+    "nutrition": {
         "proteinRatio": 1,
-        "fatRatio": 1
-    },
-    "goalNutrition": {
-        "goalIntake": 0, 
+        "fatRatio": 1,
         "protein": 0, 
         "fat": 0, 
         "carbohydrate": 0

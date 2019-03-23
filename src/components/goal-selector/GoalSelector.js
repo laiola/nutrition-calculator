@@ -1,13 +1,14 @@
 import React from 'react';
-import { Form, Button } from "react-bootstrap";
+import { Form, Button } from 'react-bootstrap';
 
 import './GoalSelector.css';
 
+export const DEFAULT_GOAL_RATIO = 1;
 const goals = [
     {key: 0.75, value: 'Lose weight (25%)'},
     {key: 0.80, value: 'Lose weight (20%)'},
     {key: 0.85, value: 'Lose weight (15%)'},
-    {key: 1, value: 'Keep weight'},
+    {key: DEFAULT_GOAL_RATIO, value: 'Keep weight'},
     {key: 1.15, value: 'Gain weight (15%)'},
     {key: 1.20, value: 'Gain weight (20%)'},
     {key: 1.25, value: 'Gain weight (25%)'},

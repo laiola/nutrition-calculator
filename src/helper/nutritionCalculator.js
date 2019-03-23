@@ -26,6 +26,19 @@ export const calculateMacronutrient = ({ goalIntake, weight, fatRatio, proteinRa
     }
 };
 
+// todo rename and delete prev versrion
+export const calculateMacronutrient2 = (goalIntake, weight, fatRatio, proteinRatio) => {
+    const fat = Math.round(weight * fatRatio);
+    const protein = Math.round(weight * proteinRatio);
+    const carbohydrate = Math.round((goalIntake - fat * 9 - protein * 4) / 4);
+
+    return {
+        fat,
+        protein,
+        carbohydrate
+    }
+};
+
 // todo round
 export const calculateNutritionByWeight = product => {
     const newProduct = {...product};

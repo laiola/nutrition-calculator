@@ -6,7 +6,7 @@ import { NORMAL_ACTIVITY } from '../../constant/Activity';
 import { ProteinRatio, FatRatio } from '../../constant/NutritionRatio';
 import { calculateTotalIntake, calculateMacronutrient } from '../../helper/nutritionCalculator';
 import { Characteristics } from '../characteristics/Characteristics';
-import { GoalSelector } from '../goal-selector/GoalSelector';
+import { GoalSelector, DEFAULT_GOAL_RATIO } from '../goal-selector/GoalSelector';
 import { NutritionRatioSelector } from '../nutrition-selector/NutritionRatioSelector';
 import { NutritionDisplay } from '../nutrition-display/NutritionDisplay';
 
@@ -20,7 +20,7 @@ class Calculator extends Component {
           age: 0,
           sex: FEMALE,
           activity: NORMAL_ACTIVITY,
-          goal: 0.75,
+          goal: DEFAULT_GOAL_RATIO,
           proteinRatio: ProteinRatio.RECOMMENDED_PROTEIN_RATIO,
           fatRatio: FatRatio.RECOMMENDED_FAT_RATIO,
         };
