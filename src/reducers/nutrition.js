@@ -1,7 +1,13 @@
 import { ActionNames } from '../constant/ActionName';
 import { calculateMacronutrient } from '../helper/nutritionCalculator';
+import { RECOMMENDED_PROTEIN_RATIO, RECOMMENDED_FAT_RATIO } from '../constant/NutritionRatio';
 
-export const nutritionReducer = (state = {}, action) => {
+const initialNutritionState = {
+    proteinRatio: RECOMMENDED_PROTEIN_RATIO,
+    fatRatio: RECOMMENDED_FAT_RATIO,
+};
+
+export const nutrition = (state = {...initialNutritionState}, action) => {
     switch(action.type) {
         case ActionNames.NUTRITION_RATIO_INPUT_CHANGE:
             const updatedState = {...state};

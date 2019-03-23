@@ -1,7 +1,18 @@
 import { ActionNames } from '../constant/ActionName';
 import { calculateTotalIntake } from '../helper/nutritionCalculator';
+import { FEMALE } from '../constant/Sex';
+import { NORMAL_ACTIVITY } from '../constant/Activity';
 
-export const characteristicsReducer = (state = {}, action) => {
+const initialCharacteristicsState = {
+    weight: 0,
+    height: 0,
+    age: 0,
+    sex: FEMALE,
+    activity: NORMAL_ACTIVITY,
+    totalIntake: 0,
+};
+
+export const characteristics = (state = {...initialCharacteristicsState}, action) => {
     switch(action.type) {
         case ActionNames.SUBMIT_CHARACTERISTICS: 
             const { sex, weight, height, age, activity } = action;

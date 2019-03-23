@@ -1,88 +1,68 @@
 import React, { Component }  from 'react';
 
 import { Header } from '../header/Header';
-import { FEMALE } from '../../constant/Sex';
-import { NORMAL_ACTIVITY } from '../../constant/Activity';
-import { ProteinRatio, FatRatio } from '../../constant/NutritionRatio';
-import { calculateTotalIntake, calculateMacronutrient } from '../../helper/nutritionCalculator';
 import { Characteristics } from '../characteristics/Characteristics';
-import { GoalSelector, DEFAULT_GOAL_RATIO } from '../goal-selector/GoalSelector';
+import { GoalSelector } from '../goal-selector/GoalSelector';
 import { NutritionRatioSelector } from '../nutrition-selector/NutritionRatioSelector';
 import { NutritionDisplay } from '../nutrition-display/NutritionDisplay';
 
 class Calculator extends Component {
-    constructor(props) {
-        super(props);
-    
-        this.state = {
-          weight: 0,
-          height: 0,
-          age: 0,
-          sex: FEMALE,
-          activity: NORMAL_ACTIVITY,
-          goal: DEFAULT_GOAL_RATIO,
-          proteinRatio: ProteinRatio.RECOMMENDED_PROTEIN_RATIO,
-          fatRatio: FatRatio.RECOMMENDED_FAT_RATIO,
-        };
-    }
-
     handleChange = event => {
-        this.setState({
-            [event.target.name]: event.target.value
-        });
+        this.props.handleCharacteristicsChange(event.target.name, event.target.value);
     };
     
     handleSubmitCharacteristics = event => {
         event.preventDefault();
-    
-        this.setState({
-            totalIntake: calculateTotalIntake(this.state)
-        });
+        this.props.handleSubmitCharacteristics(this.props.characteristics);
     };
     
+    // todo fix not updating without reselelct; combine calculator reducers and handle change methods
+    handleGoalChange = event => {
+        this.props.handleGoalRatioChange(event.target.name, event.target.value);
+    };
+
     handleSubmitGoal = event => {
         event.preventDefault();
-    
-        const { totalIntake, goal } = this.state;
-    
-        this.setState({
-            goalIntake: Math.round(totalIntake * goal)
-        });
+        this.props.handleGoalRatioSubmit(this.props.goal.goalRatio, this.props.characteristics.totalIntake);
     };
     
+    handleNutritionChange = event => {
+        this.props.handleNutritionChange(event.target.name, event.target.value);
+    };
+
     handleSubmitNutritionRatio = event => {
         event.preventDefault();
-    
-        const macronutrient = calculateMacronutrient(this.state);
-        
-        this.setState({
-            ...macronutrient
-        });
+        const { proteinRatio, fatRatio } = this.props.nutrition;
+        const { weight } = this.props.characteristics;
+        const { goalIntake } = this.props.goal;
+        this.props.handleNutritionSubmit(proteinRatio, fatRatio, weight, goalIntake);
     };
 
     render() {
-        const { totalIntake, goalIntake, protein, fat, carbohydrate } = this.state;
+        const { totalIntake, sex, activity } = this.props.characteristics || {};
+        const { goalIntake } = this.props.goal || {};
+        const { protein, fat, carbohydrate, proteinRatio, fatRatio } = this.props.nutrition || {};
 
         return(
             <div>
                 <Header/>
                 <Characteristics
-                    sex={this.state.sex}
-                    activity={this.state.activity}
+                    sex={sex}
+                    activity={activity}
                     handleChange={this.handleChange}
                     handleSubmit={this.handleSubmitCharacteristics}
                 />
                 {
                 totalIntake && <GoalSelector
-                    handleChange={this.handleChange}
+                    handleChange={this.handleGoalChange}
                     handleSubmit={this.handleSubmitGoal}
                     />
                 }
                 {
                 goalIntake && <NutritionRatioSelector
-                    proteinRatio={this.state.proteinRatio}
-                    fatRatio={this.state.fatRatio}
-                    handleChange={this.handleChange}
+                    proteinRatio={proteinRatio}
+                    fatRatio={fatRatio}
+                    handleChange={this.handleNutritionChange}
                     handleSubmit={this.handleSubmitNutritionRatio}
                     />
                 }

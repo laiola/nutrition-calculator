@@ -21,7 +21,7 @@ export const GoalSelector = props => {
                 <legend>Step 2. Goal</legend>
                 <Form.Group>
                     <Form.Label>Select your goal:</Form.Label>
-                    <Form.Control as="select" onChange={props.handleChange} name="goal">
+                    <Form.Control as="select" onChange={props.handleChange} name="goalRatio">
                         {
                             goals.map((value, i) => 
                                 <option key={i} value={value.key}>{value.value}</option>
