@@ -15,13 +15,14 @@ const goals = [
 ];
 
 export const GoalSelector = props => {
+    const { goalRatio, handleChange, handleSubmit } = props;
     return (
         <div className="goal-selector">
-            <Form onSubmit={props.handleSubmit}>
+            <Form onSubmit={handleSubmit}>
                 <legend>Step 2. Goal</legend>
                 <Form.Group>
                     <Form.Label>Select your goal:</Form.Label>
-                    <Form.Control as="select" onChange={props.handleChange} name="goalRatio">
+                    <Form.Control as="select" value={goalRatio} onChange={handleChange} name="goalRatio">
                         {
                             goals.map((value, i) => 
                                 <option key={i} value={value.key}>{value.value}</option>

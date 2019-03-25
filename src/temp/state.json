@@ -5,15 +5,13 @@
         "age": 0,
         "sex": "FEMALE", 
         "activity": "NORMAL_ACTIVITY",
-        "totalIntake": 0
-    },
-    "goal": {
         "goalRatio": 1,
-        "goalIntake": 0
-    },
-    "nutrition": {
         "proteinRatio": 1,
         "fatRatio": 1,
+        "totalIntake": 0
+    },
+    "nutrition": {
+        "goalIntake": 0,
         "protein": 0, 
         "fat": 0, 
         "carbohydrate": 0

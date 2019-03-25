@@ -13,35 +13,24 @@ class Calculator extends Component {
     
     handleSubmitCharacteristics = event => {
         event.preventDefault();
-        this.props.handleSubmitCharacteristics(this.props.characteristics);
+        this.props.handleSubmitCharacteristics();
     };
     
-    // todo fix not updating without reselelct; combine calculator reducers and handle change methods
-    handleGoalChange = event => {
-        this.props.handleGoalRatioChange(event.target.name, event.target.value);
-    };
-
     handleSubmitGoal = event => {
         event.preventDefault();
-        this.props.handleGoalRatioSubmit(this.props.goal.goalRatio, this.props.characteristics.totalIntake);
-    };
-    
-    handleNutritionChange = event => {
-        this.props.handleNutritionChange(event.target.name, event.target.value);
+        const { goalRatio, totalIntake } = this.props.characteristics;
+        this.props.handleGoalRatioSubmit(goalRatio, totalIntake);
     };
 
     handleSubmitNutritionRatio = event => {
         event.preventDefault();
-        const { proteinRatio, fatRatio } = this.props.nutrition;
-        const { weight } = this.props.characteristics;
-        const { goalIntake } = this.props.goal;
-        this.props.handleNutritionSubmit(proteinRatio, fatRatio, weight, goalIntake);
+        const { weight, proteinRatio, fatRatio } = this.props.characteristics;
+        this.props.handleNutritionSubmit(proteinRatio, fatRatio, weight);
     };
 
     render() {
-        const { totalIntake, sex, activity } = this.props.characteristics || {};
-        const { goalIntake } = this.props.goal || {};
-        const { protein, fat, carbohydrate, proteinRatio, fatRatio } = this.props.nutrition || {};
+        const { sex, activity, goalRatio, proteinRatio, fatRatio, totalIntake } = this.props.characteristics || {};
+        const { protein, fat, carbohydrate, goalIntake } = this.props.nutrition || {};
 
         return(
             <div>
@@ -54,7 +43,8 @@ class Calculator extends Component {
                 />
                 {
                 totalIntake && <GoalSelector
-                    handleChange={this.handleGoalChange}
+                    goalRatio={goalRatio}
+                    handleChange={this.handleChange}
                     handleSubmit={this.handleSubmitGoal}
                     />
                 }
@@ -62,7 +52,7 @@ class Calculator extends Component {
                 goalIntake && <NutritionRatioSelector
                     proteinRatio={proteinRatio}
                     fatRatio={fatRatio}
-                    handleChange={this.handleNutritionChange}
+                    handleChange={this.handleChange}
                     handleSubmit={this.handleSubmitNutritionRatio}
                     />
                 }

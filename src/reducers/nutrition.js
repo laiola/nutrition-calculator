@@ -1,25 +1,30 @@
 import { ActionNames } from '../constant/ActionName';
 import { calculateMacronutrient } from '../helper/nutritionCalculator';
-import { RECOMMENDED_PROTEIN_RATIO, RECOMMENDED_FAT_RATIO } from '../constant/NutritionRatio';
 
 const initialNutritionState = {
-    proteinRatio: RECOMMENDED_PROTEIN_RATIO,
-    fatRatio: RECOMMENDED_FAT_RATIO,
+    goalIntake: 0,
+    protein: 0, 
+    fat: 0, 
+    carbohydrate: 0,
 };
 
 export const nutrition = (state = {...initialNutritionState}, action) => {
     switch(action.type) {
-        case ActionNames.NUTRITION_RATIO_INPUT_CHANGE:
-            const updatedState = {...state};
-            updatedState[action.inputName] = action.inputValue;
-            return updatedState;
+        case ActionNames.SUBMIT_GOAL_RATIO: 
+            const { goalRatio, totalIntake } = action;
+            return {
+                ...state,
+                goalIntake: Math.round(totalIntake * goalRatio)
+            };
 
         case ActionNames.SUBMIT_NUTRITATION_RATIO:
-            const { proteinRatio, fatRatio, weight, goalIntake } = action;
+            const { goalIntake } = state;
+            const { proteinRatio, fatRatio, weight } = action;
             return {
                 ...state,
                 ...calculateMacronutrient(goalIntake, weight, fatRatio, proteinRatio)
             };
+
         default:
             return state;
     }
