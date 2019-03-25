@@ -28,28 +28,28 @@ class Calculator extends Component {
         this.props.handleNutritionSubmit(proteinRatio, fatRatio, weight);
     };
 
+    // todo
     render() {
-        const { sex, activity, goalRatio, proteinRatio, fatRatio, totalIntake } = this.props.characteristics || {};
-        const { protein, fat, carbohydrate, goalIntake } = this.props.nutrition || {};
+        const { goalRatio, proteinRatio, fatRatio, totalIntake } = this.props.characteristics;
+        const { protein, fat, carbohydrate, goalIntake } = this.props.nutrition;
 
         return(
             <div>
                 <Header/>
                 <Characteristics
-                    sex={sex}
-                    activity={activity}
+                    characteristics = {this.props.characteristics}
                     handleChange={this.handleChange}
                     handleSubmit={this.handleSubmitCharacteristics}
                 />
                 {
-                totalIntake && <GoalSelector
+                !!totalIntake && <GoalSelector
                     goalRatio={goalRatio}
                     handleChange={this.handleChange}
                     handleSubmit={this.handleSubmitGoal}
                     />
                 }
                 {
-                goalIntake && <NutritionRatioSelector
+                !!goalIntake && <NutritionRatioSelector
                     proteinRatio={proteinRatio}
                     fatRatio={fatRatio}
                     handleChange={this.handleChange}
@@ -57,7 +57,7 @@ class Calculator extends Component {
                     />
                 }
                 {
-                goalIntake && protein && fat && carbohydrate && <NutritionDisplay
+                !!goalIntake && !!protein && !!fat && !!carbohydrate && <NutritionDisplay
                     intake={goalIntake}
                     protein={protein}
                     fat={fat}

@@ -7,15 +7,15 @@ import { NORMAL_ACTIVITY, NO_ACTIVITY, LOW_ACTIVITY, HIGH_ACTIVITY, EXTREME_ACTI
 import './Characteristics.css';
 
 export const Characteristics = props => {
-    const { handleChange } = props;
+    const { handleChange, handleSubmit, characteristics } = props;
     
     return (
         <div className="characteristics">
-            <Form onSubmit={props.handleSubmit}>
+            <Form onSubmit={handleSubmit}>
                 <legend>Step 1. Input your characteristics</legend>
                 <Form.Group>
                     <Form.Label>Pick your sex:</Form.Label>
-                    <Form.Control as="select" value={props.sex} onChange={handleChange} name="sex">
+                    <Form.Control as="select" value={characteristics.sex} onChange={handleChange} name="sex">
                         <option value={MALE}>Male</option>
                         <option value={FEMALE}>Female</option>
                     </Form.Control>
@@ -23,20 +23,20 @@ export const Characteristics = props => {
                 <Form.Row>
                     <Col>
                         <Form.Label>Weight in kg:</Form.Label>
-                        <Form.Control type="number" step="1" name="weight" onChange={handleChange}/>
+                        <Form.Control type="number" step="1" name="weight" value={characteristics.weight} onChange={handleChange}/>
                     </Col>
                     <Col>
                         <Form.Label>Height in kg:</Form.Label>
-                        <Form.Control type="number" step="1" name="height" onChange={handleChange}/>
+                        <Form.Control type="number" step="1" name="height" value={characteristics.height} onChange={handleChange}/>
                     </Col>
                     <Col>
                         <Form.Label>Age in years:</Form.Label>
-                        <Form.Control type="number" step="1" name="age" onChange={handleChange}/>
+                        <Form.Control type="number" step="1" name="age" value={characteristics.age} onChange={handleChange}/>
                     </Col>
                 </Form.Row>
                 <Form.Group>
                     <Form.Label>Pick your lifestyle:</Form.Label>
-                    <Form.Control as="select" value={props.activity} onChange={handleChange} name="activity">
+                    <Form.Control as="select" value={characteristics.activity} onChange={handleChange} name="activity">
                         <option value={NO_ACTIVITY}>No activity</option>
                         <option value={LOW_ACTIVITY}>Low activity</option>
                         <option value={NORMAL_ACTIVITY}>Normal activity</option>

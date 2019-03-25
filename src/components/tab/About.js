@@ -7,7 +7,7 @@ class About extends Component {
         return(
             <div>
                 <Header/>
-                <p class="lead">
+                <p className="lead">
                     Info about application. 
                 </p>
                 <p>

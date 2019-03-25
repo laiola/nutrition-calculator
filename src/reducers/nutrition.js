@@ -1,5 +1,6 @@
 import { ActionNames } from '../constant/ActionName';
 import { calculateMacronutrient } from '../helper/nutritionCalculator';
+import { getOrDefault, NUTRITION_KEY, storeObject } from '../helper/localStorageHelper';
 
 const initialNutritionState = {
     goalIntake: 0,
@@ -8,23 +9,31 @@ const initialNutritionState = {
     carbohydrate: 0,
 };
 
-export const nutrition = (state = {...initialNutritionState}, action) => {
+export const nutrition = (
+    state = getOrDefault(NUTRITION_KEY, {...initialNutritionState}), 
+    action) => {
     switch(action.type) {
-        case ActionNames.SUBMIT_GOAL_RATIO: 
+        case ActionNames.SUBMIT_GOAL_RATIO: {
             const { goalRatio, totalIntake } = action;
-            return {
+            const updatedState = {
                 ...state,
                 goalIntake: Math.round(totalIntake * goalRatio)
-            };
+            }
 
-        case ActionNames.SUBMIT_NUTRITATION_RATIO:
+            storeObject(NUTRITION_KEY, updatedState);
+            return updatedState;
+        } 
+        case ActionNames.SUBMIT_NUTRITATION_RATIO: {
             const { goalIntake } = state;
             const { proteinRatio, fatRatio, weight } = action;
-            return {
+            const updatedState = {
                 ...state,
                 ...calculateMacronutrient(goalIntake, weight, fatRatio, proteinRatio)
-            };
+            }
 
+            storeObject(NUTRITION_KEY, updatedState);
+            return updatedState;
+        }
         default:
             return state;
     }
