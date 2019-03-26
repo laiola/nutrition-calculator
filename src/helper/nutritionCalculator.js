@@ -1,5 +1,5 @@
-import { FEMALE, SexCoefficient } from "../constant/Sex";
-import { ActivityCoefficient, NORMAL_ACTIVITY } from "../constant/Activity";
+import { FEMALE, SexCoefficient } from '../constant/Sex';
+import { ActivityCoefficient, NORMAL_ACTIVITY } from '../constant/Activity';
 
 const WEIGHT_COEF = 10;
 const HEIGHT_COEF = 6.25;
