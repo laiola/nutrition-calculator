@@ -61,7 +61,7 @@ class ProductSelect extends Component {
     onChange = event => {
         event.preventDefault();
         this.setState({
-            selectedIndex: event.target.value
+            selectedIndex: +event.target.value
         });
     };
 
