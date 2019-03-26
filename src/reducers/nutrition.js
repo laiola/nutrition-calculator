@@ -2,7 +2,7 @@ import { ActionNames } from '../constant/ActionName';
 import { calculateMacronutrient } from '../helper/nutritionCalculator';
 import { getOrDefault, NUTRITION_KEY, storeObject } from '../helper/localStorageHelper';
 
-const initialNutritionState = {
+export const initialNutritionState = {
     goalIntake: 0,
     protein: 0, 
     fat: 0, 

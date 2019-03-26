@@ -1,4 +1,4 @@
-import { SexCoefficient, FEMALE } from "../constant/Sex";
+import { FEMALE, SexCoefficient } from "../constant/Sex";
 import { ActivityCoefficient, NORMAL_ACTIVITY } from "../constant/Activity";
 
 const WEIGHT_COEF = 10;
@@ -18,14 +18,16 @@ export const calculateTotalIntake = ({ weight, height, age, sex, activity = NORM
     ActivityCoefficient[activity] * calculateBMR(weight, height, age, sex);
 
 export const calculateMacronutrient = (goalIntake, weight, fatRatio, proteinRatio) => {
-    const fat = Math.round(weight * fatRatio);
-    const protein = Math.round(weight * proteinRatio);
-    const carbohydrate = Math.round((goalIntake - fat * 9 - protein * 4) / 4);
+    if (goalIntake && weight && fatRatio && proteinRatio) {
+        const fat = Math.round(weight * fatRatio);
+        const protein = Math.round(weight * proteinRatio);
+        const carbohydrate = Math.round((goalIntake - fat * 9 - protein * 4) / 4);
 
-    return {
-        fat,
-        protein,
-        carbohydrate
+        return {
+            fat,
+            protein,
+            carbohydrate
+        }
     }
 };
 
