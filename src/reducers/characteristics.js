@@ -1,12 +1,12 @@
 import { ActionNames } from '../constant/ActionName';
 import { FEMALE } from '../constant/Sex';
 import { NORMAL_ACTIVITY } from '../constant/Activity';
-import { RECOMMENDED_PROTEIN_RATIO, RECOMMENDED_FAT_RATIO } from '../constant/NutritionRatio';
+import { RECOMMENDED_FAT_RATIO, RECOMMENDED_PROTEIN_RATIO } from '../constant/NutritionRatio';
 import { DEFAULT_GOAL_RATIO } from '../components/goal-selector/GoalSelector';
+import { CHARACTERISTIC_KEY, getOrDefault, storeObject } from '../helper/localStorageHelper';
 import { calculateTotalIntake } from '../helper/nutritionCalculator';
-import { getOrDefault, CHARACTERISTIC_KEY, storeObject } from '../helper/localStorageHelper';
 
-const initialCharacteristicsState = {
+export const initialCharacteristicsState = {
     weight: 0,
     height: 0,
     age: 0,
@@ -19,10 +19,10 @@ const initialCharacteristicsState = {
 };
 
 export const characteristics = (
-    state = getOrDefault(CHARACTERISTIC_KEY, {...initialCharacteristicsState}), 
+    state = getOrDefault(CHARACTERISTIC_KEY, {...initialCharacteristicsState}),
     action
-    ) => {
-    switch(action.type) {
+) => {
+    switch (action.type) {
         case ActionNames.SUBMIT_CHARACTERISTICS: {
             const totalIntake = calculateTotalIntake(state);
             const updatedState = {
