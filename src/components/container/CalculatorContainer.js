@@ -2,7 +2,7 @@ import { connect } from 'react-redux'
 
 import Calculator from '../tab/Calculator';
 import { 
-    characteristiceInputChange, 
+    characteristicsInputChange, 
     submitCharacteristics, 
     submitGoalRatio,
     submitNutritionRatio
@@ -15,7 +15,7 @@ const mapStateToProps = state => ({
 
 const mapDispatchToProps = dispatch => ({
     handleCharacteristicsChange: 
-        (inputName, inputValue) => dispatch(characteristiceInputChange(inputName, inputValue)),
+        (inputName, inputValue) => dispatch(characteristicsInputChange(inputName, inputValue)),
    
     handleSubmitCharacteristics: () => dispatch(submitCharacteristics()),
 

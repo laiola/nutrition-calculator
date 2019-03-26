@@ -6,7 +6,7 @@ export const submitCharacteristics = () => (
     }
 );
 
-export const characteristiceInputChange = (inputName, inputValue) => (
+export const characteristicsInputChange = (inputName, inputValue) => (
     {
         type: ActionNames.CHARACTERISTICS_INPUT_CHANGE,
         inputName,
