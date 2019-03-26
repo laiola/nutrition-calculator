@@ -100,6 +100,6 @@ class MealTable extends Component {
             </div>
         ) 
     }
-};
+}
 
 export default MealTable;

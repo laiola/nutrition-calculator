@@ -7,7 +7,7 @@ class ProductModal extends Component {
         onSubmit: f => f,
         onClose: f => f,
         isDisplayedProductModal: false,
-    }
+    };
 
     constructor(props) {
         super(props);
@@ -36,7 +36,7 @@ class ProductModal extends Component {
         const { onSubmit, onClose } = this.props;
         onSubmit(calculateNutritionByWeight(this.state));
         onClose();
-    }
+    };
 
     render() {
         const { isDisplayedProductModal, onClose } = this.props;
@@ -97,4 +97,4 @@ export const ProductForm = ({ handleSubmit, handleChange }) => {
             </Form>
         </div>
     )
-}
+};

@@ -18,18 +18,18 @@ export const nutrition = (
             const updatedState = {
                 ...state,
                 goalIntake: Math.round(totalIntake * goalRatio)
-            }
+            };
 
             storeObject(NUTRITION_KEY, updatedState);
             return updatedState;
         } 
-        case ActionNames.SUBMIT_NUTRITATION_RATIO: {
+        case ActionNames.SUBMIT_NUTRITION_RATIO: {
             const { goalIntake } = state;
             const { proteinRatio, fatRatio, weight } = action;
             const updatedState = {
                 ...state,
                 ...calculateMacronutrient(goalIntake, weight, fatRatio, proteinRatio)
-            }
+            };
 
             storeObject(NUTRITION_KEY, updatedState);
             return updatedState;
@@ -37,4 +37,4 @@ export const nutrition = (
         default:
             return state;
     }
-}
+};

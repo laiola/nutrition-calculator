@@ -11,7 +11,7 @@ const PRODUCTS_KEY = 'products';
 class ProductSelect extends Component {
     static defaultProps = {
         onSelect: f => f,
-    }
+    };
 
     constructor(props) {
         super(props);
@@ -48,7 +48,7 @@ class ProductSelect extends Component {
         this.setState({
             isDisplayedProductModal: false
         })
-    }
+    };
 
     onSubmit = product => {
         const newProducts = [...this.state.products, product];
@@ -56,7 +56,7 @@ class ProductSelect extends Component {
         this.setState({
             products: newProducts,
         }, () => localStorage.setItem(PRODUCTS_KEY, JSON.stringify(newProducts.slice(1)))); 
-    }
+    };
 
     onChange = event => {
         event.preventDefault();

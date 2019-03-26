@@ -10,7 +10,7 @@ class Menu extends Component {
         protein: 70,
         fat: 50,
         carbohydrate: 150
-    }
+    };
     
     render() {
         const { goalIntake, protein, fat, carbohydrate } = this.props;

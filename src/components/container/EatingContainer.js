@@ -23,7 +23,7 @@ class EatingContainer extends Component {
         this.setState({
             rows: [],
         });
-    }
+    };
 
     render() {
         const { title } = this.props;

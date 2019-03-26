@@ -37,4 +37,4 @@ export const calculateNutritionByWeight = product => {
     newProduct.calorie = weightCoef * product.caloriePer;
 
     return newProduct;
-}
+};

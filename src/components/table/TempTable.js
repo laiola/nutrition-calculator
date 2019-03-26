@@ -17,7 +17,7 @@ const initialRow = {
     fatPer: 0,
     carbohydratePer: 0,
     caloriePer: 0,
-}
+};
 
 const initialTotal = {
     protein: 0,

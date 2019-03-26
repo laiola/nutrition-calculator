@@ -24,7 +24,7 @@ export const submitGoalRatio = (goalRatio, totalIntake) => (
 
 export const submitNutritionRatio = (proteinRatio, fatRatio, weight) => (
     {
-        type: ActionNames.SUBMIT_NUTRITATION_RATIO,
+        type: ActionNames.SUBMIT_NUTRITION_RATIO,
         proteinRatio,
         fatRatio,
         weight

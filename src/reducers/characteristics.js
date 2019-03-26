@@ -28,7 +28,7 @@ export const characteristics = (
             const updatedState = {
                 ...state,
                 totalIntake
-            }
+            };
 
             storeObject(CHARACTERISTIC_KEY, updatedState);
             return updatedState;
@@ -43,4 +43,4 @@ export const characteristics = (
         default:
             return state;
     }
-}
+};

@@ -25,4 +25,4 @@ export const NutritionCard = ({title, value}) => {
             </Card.Body>
         </Card>
     );
-}
+};
