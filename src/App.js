@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Provider } from 'react-redux';
-import { HashRouter,  Route, Switch } from 'react-router-dom'
-import { createStore, combineReducers } from 'redux';
+import { HashRouter, Route, Switch } from 'react-router-dom'
+import { combineReducers, createStore } from 'redux';
 
 import { CalculatorContainer } from './components/container/CalculatorContainer';
 import Menu from './components/tab/Menu';
@@ -14,25 +14,26 @@ import { nutrition } from './reducers/nutrition';
 import 'bootswatch/dist/minty/bootstrap.css';
 
 const store = createStore(
-  combineReducers({ characteristics, nutrition})
+    combineReducers({characteristics, nutrition})
 );
 
 class App extends Component {
-  render() {
-    return (
-      <Provider store={store}>
-        <HashRouter>
-          <Switch>
-            <Route path="/calculator" component={CalculatorContainer}/>
-            <Route path="/menu" component={Menu}/>
-            <Route path="/products" component={Products}/>
-            <Route path="/about" component={About}/>
-            <Route component={NotFoundPage}/>
-          </Switch>
-        </HashRouter>
-      </Provider>
-    );
-  }
+    render() {
+        return (
+            <Provider store={store}>
+                <HashRouter>
+                    <Switch>
+                        <Route exact path="/" component={CalculatorContainer}/>
+                        <Route path="/calculator" component={CalculatorContainer}/>
+                        <Route path="/menu" component={Menu}/>
+                        <Route path="/products" component={Products}/>
+                        <Route path="/about" component={About}/>
+                        <Route component={NotFoundPage}/>
+                    </Switch>
+                </HashRouter>
+            </Provider>
+        );
+    }
 }
 
 export default App;
