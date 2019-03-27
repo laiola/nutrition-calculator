@@ -17,5 +17,11 @@
         "carbohydrate": 0
     },
     "products": [],
-    "menu": []
+    "menu": {
+        "rows": [],
+        "protein": 0,
+        "fat": 0,
+        "carbohydrate": 0,
+        "calorie": 0
+    }
 }

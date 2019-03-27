@@ -10,11 +10,12 @@ import About from './components/tab/About';
 import NotFoundPage from './components/tab/NotFoundPage';
 import { characteristics } from './reducers/characteristics';
 import { nutrition } from './reducers/nutrition';
+import { menu } from './reducers/menu';
 
 import 'bootswatch/dist/minty/bootstrap.css';
 
 const store = createStore(
-    combineReducers({ characteristics, nutrition })
+    combineReducers({ characteristics, nutrition, menu })
 );
 
 class App extends Component {

@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import { Table } from 'react-bootstrap';
 
 import ProductSelect from './ProductSelect';
-import { calculateNutritionByWeight } from '../../helper/nutritionCalculator';
 
 import './Table.css';
 
@@ -19,22 +18,6 @@ const initialRow = {
     caloriePer: 0,
 };
 
-const initialTotal = {
-    protein: 0,
-    fat: 0,
-    carbohydrate: 0,
-    calorie: 0
-};
-
-const nutritionReducer = (accumulator, nutrition) => {
-    accumulator.protein += nutrition.protein;
-    accumulator.fat += nutrition.fat;
-    accumulator.carbohydrate += nutrition.carbohydrate;
-    accumulator.calorie += nutrition.calorie;
-
-    return accumulator;
-};
-
 class TempTable extends Component {
     static defaultProps = {
         goalIntake: 0,
@@ -43,67 +26,26 @@ class TempTable extends Component {
         goalCarbohydrate: 0
     };
 
-    constructor(props) {
-        super(props);
-
-        this.state = {
-            rows: [],
-            ...initialTotal
-        }
-    }
-
     onAddRow = () => {
-        const { rows } = this.state;
-        this.setState({
-            rows: [...rows, { ...initialRow }]
-        })
+        this.props.onAddRow({ ...initialRow });
     };
 
     onAddPresetRow = product => {
-        const { rows } = this.state;
-        this.setState({
-            rows: [...rows, { ...product }]
-        })
+        this.props.onAddRow({ ...product });
     };
 
     onChangeRow = i => event => {
-        const updatedRows = this.getUpdatedRows(i, event);
-
-        this.setState({
-            rows: updatedRows,
-            ...this.getUpdatedNutrition(updatedRows)
-        })
+        this.props.onChangeRow(i, event.target.getAttribute('name'), event.target.innerText);
     };
 
-    // todo refactor?
-    // todo update total after adding from product select
-    getUpdatedRows = (i, event) => {
-        const updatedRows = [...this.state.rows];
-
-        const row = updatedRows[i]; // maybe get update row?
-
-        row[event.target.getAttribute('name')] = event.target.innerText;
-
-        updatedRows[i] = calculateNutritionByWeight(row);
-
-        return updatedRows;
-    };
-
-    getUpdatedNutrition = (rows) => {
-        const nutrition = rows.reduce(nutritionReducer, { ...initialTotal });
-
-        return {
-            protein: nutrition.protein.toFixed(1),
-            fat: nutrition.fat.toFixed(1),
-            carbohydrate: nutrition.carbohydrate.toFixed(1),
-            calorie: nutrition.calorie.toFixed(1),
-        }
-    };
-
+    // todo fix rows initialization and write test
     render() {
-        const { rows, protein, fat, carbohydrate, calorie, } = this.state;
-        const { goalIntake, goalProtein, goalFat, goalCarbohydrate } = this.props;
+        const {
+            rows = [], protein, fat, carbohydrate, calorie,
+            goalIntake, goalProtein, goalFat, goalCarbohydrate
+        } = this.props;
 
+        console.debug();
         return (
             <>
                 <ProductSelect onSelect={this.onAddPresetRow}/>

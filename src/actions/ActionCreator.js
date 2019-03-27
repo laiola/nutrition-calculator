@@ -30,3 +30,19 @@ export const submitNutritionRatio = (proteinRatio, fatRatio, weight) => (
         weight
     }
 );
+
+export const addRowToMenu = row => (
+    {
+        type: ActionNames.ADD_ROW_TO_MENU,
+        row
+    }
+);
+
+export const changeRow = (rowIndex, inputName, inputValue) => (
+    {
+        type: ActionNames.MENU_ROW_INPUT_CHANGE,
+        rowIndex,
+        inputName,
+        inputValue
+    }
+);
