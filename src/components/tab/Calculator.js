@@ -1,4 +1,4 @@
-import React, { Component }  from 'react';
+import React, { Component } from 'react';
 
 import { Header } from '../header/Header';
 import { Characteristics } from '../characteristics/Characteristics';
@@ -10,12 +10,12 @@ class Calculator extends Component {
     handleChange = event => {
         this.props.handleCharacteristicsChange(event.target.name, event.target.value);
     };
-    
+
     handleSubmitCharacteristics = event => {
         event.preventDefault();
         this.props.handleSubmitCharacteristics();
     };
-    
+
     handleSubmitGoal = event => {
         event.preventDefault();
         const { goalRatio, totalIntake } = this.props.characteristics;
@@ -33,35 +33,35 @@ class Calculator extends Component {
         const { goalRatio, proteinRatio, fatRatio, totalIntake } = this.props.characteristics;
         const { protein, fat, carbohydrate, goalIntake } = this.props.nutrition;
 
-        return(
+        return (
             <div>
                 <Header/>
                 <Characteristics
-                    characteristics = {this.props.characteristics}
+                    characteristics={this.props.characteristics}
                     handleChange={this.handleChange}
                     handleSubmit={this.handleSubmitCharacteristics}
                 />
                 {
-                !!totalIntake && <GoalSelector
-                    goalRatio={goalRatio}
-                    handleChange={this.handleChange}
-                    handleSubmit={this.handleSubmitGoal}
+                    !!totalIntake && <GoalSelector
+                        goalRatio={goalRatio}
+                        handleChange={this.handleChange}
+                        handleSubmit={this.handleSubmitGoal}
                     />
                 }
                 {
-                !!goalIntake && <NutritionRatioSelector
-                    proteinRatio={proteinRatio}
-                    fatRatio={fatRatio}
-                    handleChange={this.handleChange}
-                    handleSubmit={this.handleSubmitNutritionRatio}
+                    !!goalIntake && <NutritionRatioSelector
+                        proteinRatio={proteinRatio}
+                        fatRatio={fatRatio}
+                        handleChange={this.handleChange}
+                        handleSubmit={this.handleSubmitNutritionRatio}
                     />
                 }
                 {
-                !!goalIntake && !!protein && !!fat && !!carbohydrate && <NutritionDisplay
-                    intake={goalIntake}
-                    protein={protein}
-                    fat={fat}
-                    carbohydrate={carbohydrate}
+                    !!goalIntake && !!protein && !!fat && !!carbohydrate && <NutritionDisplay
+                        intake={goalIntake}
+                        protein={protein}
+                        fat={fat}
+                        carbohydrate={carbohydrate}
                     />
                 }
             </div>

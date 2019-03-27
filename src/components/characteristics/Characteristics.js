@@ -1,14 +1,14 @@
 import React from 'react';
-import { Form, Col, Button } from "react-bootstrap";
+import { Button, Col, Form } from 'react-bootstrap';
 
-import { MALE, FEMALE } from '../../constant/Sex';
-import { NORMAL_ACTIVITY, NO_ACTIVITY, LOW_ACTIVITY, HIGH_ACTIVITY, EXTREME_ACTIVITY } from '../../constant/Activity';
+import { FEMALE, MALE } from '../../constant/Sex';
+import { EXTREME_ACTIVITY, HIGH_ACTIVITY, LOW_ACTIVITY, NO_ACTIVITY, NORMAL_ACTIVITY } from '../../constant/Activity';
 
 import './Characteristics.css';
 
 export const Characteristics = props => {
     const { handleChange, handleSubmit, characteristics } = props;
-    
+
     return (
         <div className="characteristics">
             <Form onSubmit={handleSubmit}>
@@ -23,15 +23,18 @@ export const Characteristics = props => {
                 <Form.Row>
                     <Col>
                         <Form.Label>Weight in kg:</Form.Label>
-                        <Form.Control type="number" step="1" name="weight" value={characteristics.weight} onChange={handleChange}/>
+                        <Form.Control type="number" step="1" name="weight" value={characteristics.weight}
+                                      onChange={handleChange}/>
                     </Col>
                     <Col>
                         <Form.Label>Height in kg:</Form.Label>
-                        <Form.Control type="number" step="1" name="height" value={characteristics.height} onChange={handleChange}/>
+                        <Form.Control type="number" step="1" name="height" value={characteristics.height}
+                                      onChange={handleChange}/>
                     </Col>
                     <Col>
                         <Form.Label>Age in years:</Form.Label>
-                        <Form.Control type="number" step="1" name="age" value={characteristics.age} onChange={handleChange}/>
+                        <Form.Control type="number" step="1" name="age" value={characteristics.age}
+                                      onChange={handleChange}/>
                     </Col>
                 </Form.Row>
                 <Form.Group>

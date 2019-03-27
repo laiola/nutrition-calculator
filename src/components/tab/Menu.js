@@ -3,7 +3,7 @@ import React from 'react';
 import { Header } from '../header/Header';
 import TempTable from '../table/TempTable';
 
-export const Menu = ({goalIntake, protein, fat, carbohydrate}) => {
+export const Menu = ({ goalIntake, protein, fat, carbohydrate }) => {
     return (
         <div>
             <Header/>

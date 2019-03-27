@@ -19,7 +19,7 @@ export const initialCharacteristicsState = {
 };
 
 export const characteristics = (
-    state = getOrDefault(CHARACTERISTIC_KEY, {...initialCharacteristicsState}),
+    state = getOrDefault(CHARACTERISTIC_KEY, { ...initialCharacteristicsState }),
     action
 ) => {
     switch (action.type) {
@@ -34,7 +34,7 @@ export const characteristics = (
             return updatedState;
         }
         case ActionNames.CHARACTERISTICS_INPUT_CHANGE: {
-            const updatedState = {...state};
+            const updatedState = { ...state };
             updatedState[action.inputName] = action.inputValue;
 
             storeObject(CHARACTERISTIC_KEY, updatedState);

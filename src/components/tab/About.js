@@ -1,14 +1,14 @@
-import React, { Component }  from 'react';
+import React, { Component } from 'react';
 
 import { Header } from '../header/Header';
 
 class About extends Component {
     render() {
-        return(
+        return (
             <div>
                 <Header/>
                 <p className="lead">
-                    Info about application. 
+                    Info about application.
                 </p>
                 <p>
                     How does calculation work?

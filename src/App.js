@@ -14,7 +14,7 @@ import { nutrition } from './reducers/nutrition';
 import 'bootswatch/dist/minty/bootstrap.css';
 
 const store = createStore(
-    combineReducers({characteristics, nutrition})
+    combineReducers({ characteristics, nutrition })
 );
 
 class App extends Component {

@@ -1,4 +1,4 @@
-export const storeObject = (key, storedObject) => 
+export const storeObject = (key, storedObject) =>
     localStorage.setItem(key, JSON.stringify(storedObject));
 
 export const get = key => JSON.parse(localStorage.getItem(key));

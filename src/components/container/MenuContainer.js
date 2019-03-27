@@ -2,7 +2,7 @@ import { connect } from 'react-redux';
 import { Menu } from '../tab/Menu';
 
 const mapStateToProps = state => {
-    const {goalIntake, protein, fat, carbohydrate} = state.nutrition;
+    const { goalIntake, protein, fat, carbohydrate } = state.nutrition;
     return {
         goalIntake,
         protein,

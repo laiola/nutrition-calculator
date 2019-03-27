@@ -40,12 +40,12 @@ class EatingContainer extends Component {
                     </td>
                 </tr>
                 {
-                    this.state.rows.map( (value, i) =>
+                    this.state.rows.map((value, i) =>
                         <ProductRow key={i} values={Object.values(value)} title={title}
-                            updateContainer={this.props.onChange}/>)
+                                    updateContainer={this.props.onChange}/>)
                 }
             </>
-        ) 
+        )
     }
 }
 

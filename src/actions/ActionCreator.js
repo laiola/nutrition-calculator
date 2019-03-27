@@ -10,7 +10,7 @@ export const characteristicsInputChange = (inputName, inputValue) => (
     {
         type: ActionNames.CHARACTERISTICS_INPUT_CHANGE,
         inputName,
-        inputValue   
+        inputValue
     }
 );
 

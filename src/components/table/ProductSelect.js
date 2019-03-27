@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Form } from "react-bootstrap";
+import { Form } from 'react-bootstrap';
 
 import ProductModal from '../modal/ProductModal';
 
@@ -16,7 +16,7 @@ class ProductSelect extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            products: [{id: defaultIndex, title: 'Choose Product'}],
+            products: [{ id: defaultIndex, title: 'Choose Product' }],
             selectedIndex: defaultIndex,
             isDisplayedProductModal: false,
         }
@@ -55,7 +55,7 @@ class ProductSelect extends Component {
 
         this.setState({
             products: newProducts,
-        }, () => localStorage.setItem(PRODUCTS_KEY, JSON.stringify(newProducts.slice(1)))); 
+        }, () => localStorage.setItem(PRODUCTS_KEY, JSON.stringify(newProducts.slice(1))));
     };
 
     onChange = event => {
@@ -69,22 +69,22 @@ class ProductSelect extends Component {
         const { isDisplayedProductModal, products, selectedIndex } = this.state;
         return (
             <div className="product-select">
-                { 
+                {
                     isDisplayedProductModal
-                    && <ProductModal onSubmit={this.onSubmit} 
-                                     onClose={this.onClose} 
+                    && <ProductModal onSubmit={this.onSubmit}
+                                     onClose={this.onClose}
                                      isDisplayedProductModal={isDisplayedProductModal}/>
                 }
                 <Form className="product-select-form">
                     <Form.Group>
                         <Form.Label htmlFor="product-select" className="lead">Select a product:</Form.Label>
-                        <Form.Control as="select" className="product-select" 
-                                id="product-select" 
-                                onChange={this.onChange}
-                                value={selectedIndex}
-                                title={products[selectedIndex].title}>
+                        <Form.Control as="select" className="product-select"
+                                      id="product-select"
+                                      onChange={this.onChange}
+                                      value={selectedIndex}
+                                      title={products[selectedIndex].title}>
                             {
-                                products.map((product, id) => 
+                                products.map((product, id) =>
                                     <option key={`${id}-${product.title}`} value={id}>
                                         {product.title}
                                     </option>
@@ -93,8 +93,11 @@ class ProductSelect extends Component {
                         </Form.Control>
                     </Form.Group>
                     <Form.Group>
-                        <button className="btn btn-secondary" type="button" onClick={this.onAddProduct}>Add Product</button>
-                        <button className="btn btn-primary" type="button" onClick={this.onAddProductToTable}>Add To Table</button>
+                        <button className="btn btn-secondary" type="button" onClick={this.onAddProduct}>Add Product
+                        </button>
+                        <button className="btn btn-primary" type="button" onClick={this.onAddProductToTable}>Add To
+                            Table
+                        </button>
                     </Form.Group>
                 </Form>
             </div>

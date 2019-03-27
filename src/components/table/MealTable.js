@@ -8,16 +8,16 @@ import './MealTable.css';
 const headers = ['Title', 'Weight', 'P', 'F', 'C', 'Calorie', 'Edit Nutrition'];
 const initialEatingContainer = {
     protein: 0,
-    fat : 0,
+    fat: 0,
     carbohydrate: 0,
     calorie: 0
 };
 
 const initialEatingContainers = [
-    {key: 'Breakfast', value: {...initialEatingContainer}},
-    {key: 'Lunch', value: {...initialEatingContainer}},
-    {key: 'Snack', value: {...initialEatingContainer}},
-    {key: 'Dinner', value: {...initialEatingContainer}},
+    { key: 'Breakfast', value: { ...initialEatingContainer } },
+    { key: 'Lunch', value: { ...initialEatingContainer } },
+    { key: 'Snack', value: { ...initialEatingContainer } },
+    { key: 'Dinner', value: { ...initialEatingContainer } },
 ];
 
 class MealTable extends Component {
@@ -25,13 +25,13 @@ class MealTable extends Component {
         super(props);
 
         this.state = {
-            eatingContainers : initialEatingContainers,
+            eatingContainers: initialEatingContainers,
         };
     };
 
     onRemoveEatingContainer = title => {
         this.setState({
-            eatingContainers : this.state.eatingContainers.filter(el => el.key !== title)
+            eatingContainers: this.state.eatingContainers.filter(el => el.key !== title)
         });
     };
 
@@ -58,47 +58,47 @@ class MealTable extends Component {
         };
 
         this.setState({
-            eatingContainers : eatingContainersCopy,
+            eatingContainers: eatingContainersCopy,
             totalNutrition: eatingContainersCopy.reduce(reducer, initialEatingContainer)
-        });        
+        });
     };
 
     render() {
         const { protein = 0, fat = 0, carbohydrate = 0, calorie = 0 } = this.state.totalNutrition || initialEatingContainer;
-        
+
         return (
             <div className="main-table">
                 <Table>
                     <thead>
-                        <tr>
+                    <tr>
                         {
-                            headers.map((header, i) => 
+                            headers.map((header, i) =>
                                 <th key={i + header}>{header}</th>
                             )
                         }
-                        </tr>
+                    </tr>
                     </thead>
                     <tbody>
-                        {
-                            this.state.eatingContainers.map((container, i) => 
-                                <EatingContainer key={i} title={container.key}
-                                    onRemove={this.onRemoveEatingContainer}
-                                    onChange={this.onChangeEatingContainer}/>
-                            )
-                        }
-                        <tr>
-                            <td></td>
-                            <td></td>
-                            <td>{protein}</td>
-                            <td>{fat}</td>
-                            <td>{carbohydrate}</td>
-                            <td>{calorie}</td>
-                            <td></td>
-                        </tr>
+                    {
+                        this.state.eatingContainers.map((container, i) =>
+                            <EatingContainer key={i} title={container.key}
+                                             onRemove={this.onRemoveEatingContainer}
+                                             onChange={this.onChangeEatingContainer}/>
+                        )
+                    }
+                    <tr>
+                        <td></td>
+                        <td></td>
+                        <td>{protein}</td>
+                        <td>{fat}</td>
+                        <td>{carbohydrate}</td>
+                        <td>{calorie}</td>
+                        <td></td>
+                    </tr>
                     </tbody>
                 </Table>
             </div>
-        ) 
+        )
     }
 }
 

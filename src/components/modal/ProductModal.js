@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Modal, Form, Col, Button } from 'react-bootstrap';
+import { Button, Col, Form, Modal } from 'react-bootstrap';
 import { calculateNutritionByWeight } from '../../helper/nutritionCalculator';
 
 class ProductModal extends Component {
@@ -11,7 +11,7 @@ class ProductModal extends Component {
 
     constructor(props) {
         super(props);
-        
+
         this.state = {
             title: '',
             weight: 0,
@@ -28,10 +28,10 @@ class ProductModal extends Component {
 
     handleChange = event => {
         this.setState({
-          [event.target.name]: event.target.value
+            [event.target.name]: event.target.value
         });
     };
-    
+
     handleSubmit = () => {
         const { onSubmit, onClose } = this.props;
         onSubmit(calculateNutritionByWeight(this.state));
@@ -40,7 +40,7 @@ class ProductModal extends Component {
 
     render() {
         const { isDisplayedProductModal, onClose } = this.props;
-        return(
+        return (
             <Modal show={isDisplayedProductModal} onHide={onClose}>
                 <Modal.Header closeButton>
                     <Modal.Title>Input your product</Modal.Title>
@@ -64,7 +64,7 @@ class ProductModal extends Component {
 export default ProductModal;
 
 export const ProductForm = ({ handleSubmit, handleChange }) => {
-    return(
+    return (
         <div className='popup'>
             <Form onSubmit={handleSubmit}>
                 <Form.Group>

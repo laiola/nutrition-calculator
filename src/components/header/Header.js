@@ -1,6 +1,6 @@
-import React from "react";
+import React from 'react';
 import { Link } from 'react-router-dom'
-import { Navbar, Nav } from "react-bootstrap";
+import { Nav, Navbar } from 'react-bootstrap';
 
 import logo from './logo.jpg';
 import './Header.css';

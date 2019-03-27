@@ -14,7 +14,7 @@ const calculateBMR = (weight, height, age, sex = FEMALE) =>
         + SexCoefficient[sex]
         : DEFAULT_BMR;
 
-export const calculateTotalIntake = ({ weight, height, age, sex, activity = NORMAL_ACTIVITY}) => 
+export const calculateTotalIntake = ({ weight, height, age, sex, activity = NORMAL_ACTIVITY }) =>
     ActivityCoefficient[activity] * calculateBMR(weight, height, age, sex);
 
 export const calculateMacronutrient = (goalIntake, weight, fatRatio, proteinRatio) => {
@@ -33,7 +33,7 @@ export const calculateMacronutrient = (goalIntake, weight, fatRatio, proteinRati
 
 // todo round
 export const calculateNutritionByWeight = product => {
-    const newProduct = {...product};
+    const newProduct = { ...product };
     const weightCoef = product.weight / 100;
 
     newProduct.protein = weightCoef * product.proteinPer;

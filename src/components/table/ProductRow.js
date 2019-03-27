@@ -39,7 +39,8 @@ class ProductRow extends Component {
                 }
                 <td>
                     <button type="button" className="btn btn-outline-info"
-                        onClick={onClick}>Edit</button>
+                            onClick={onClick}>Edit
+                    </button>
                 </td>
             </tr>
         )

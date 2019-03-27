@@ -4,13 +4,13 @@ import { getOrDefault, NUTRITION_KEY, storeObject } from '../helper/localStorage
 
 export const initialNutritionState = {
     goalIntake: 0,
-    protein: 0, 
-    fat: 0, 
+    protein: 0,
+    fat: 0,
     carbohydrate: 0,
 };
 
 export const nutrition = (
-    state = getOrDefault(NUTRITION_KEY, {...initialNutritionState}), 
+    state = getOrDefault(NUTRITION_KEY, { ...initialNutritionState }),
     action) => {
     switch(action.type) {
         case ActionNames.SUBMIT_GOAL_RATIO: {
@@ -22,7 +22,7 @@ export const nutrition = (
 
             storeObject(NUTRITION_KEY, updatedState);
             return updatedState;
-        } 
+        }
         case ActionNames.SUBMIT_NUTRITION_RATIO: {
             const { goalIntake } = state;
             const { proteinRatio, fatRatio, weight } = action;

@@ -21,7 +21,7 @@ const initialRow = {
 
 const initialTotal = {
     protein: 0,
-    fat : 0,
+    fat: 0,
     carbohydrate: 0,
     calorie: 0
 };
@@ -36,6 +36,13 @@ const nutritionReducer = (accumulator, nutrition) => {
 };
 
 class TempTable extends Component {
+    static defaultProps = {
+        goalIntake: 0,
+        goalProtein: 0,
+        goalFat: 0,
+        goalCarbohydrate: 0
+    };
+
     constructor(props) {
         super(props);
 
@@ -48,14 +55,14 @@ class TempTable extends Component {
     onAddRow = () => {
         const { rows } = this.state;
         this.setState({
-            rows: [...rows, {...initialRow}]
+            rows: [...rows, { ...initialRow }]
         })
     };
 
     onAddPresetRow = product => {
         const { rows } = this.state;
         this.setState({
-            rows: [...rows, {...product}]
+            rows: [...rows, { ...product }]
         })
     };
 
@@ -72,19 +79,19 @@ class TempTable extends Component {
     // todo update total after adding from product select
     getUpdatedRows = (i, event) => {
         const updatedRows = [...this.state.rows];
-        
+
         const row = updatedRows[i]; // maybe get update row?
-        
+
         row[event.target.getAttribute('name')] = event.target.innerText;
 
-        updatedRows[i] = calculateNutritionByWeight(row); 
+        updatedRows[i] = calculateNutritionByWeight(row);
 
         return updatedRows;
     };
 
     getUpdatedNutrition = (rows) => {
-        const nutrition = rows.reduce(nutritionReducer, {...initialTotal});
-        
+        const nutrition = rows.reduce(nutritionReducer, { ...initialTotal });
+
         return {
             protein: nutrition.protein.toFixed(1),
             fat: nutrition.fat.toFixed(1),
@@ -95,9 +102,9 @@ class TempTable extends Component {
 
     render() {
         const { rows, protein, fat, carbohydrate, calorie, } = this.state;
-        const { goalIntake = 0, goalProtein = 0, goalFat = 0, goalCarbohydrate = 0 } = this.props;
-        
-        return(
+        const { goalIntake, goalProtein, goalFat, goalCarbohydrate } = this.props;
+
+        return (
             <>
                 <ProductSelect onSelect={this.onAddPresetRow}/>
                 <div className="btn-container">
@@ -105,65 +112,65 @@ class TempTable extends Component {
                 </div>
                 <Table striped bordered hover>
                     <thead>
-                        <tr>
-                            <th>Title</th>
-                            <th>Weight</th>
-                            <th>Protein</th>
-                            <th>Fat</th>
-                            <th>Carbohydrate</th>
-                            <th>Calorie</th>
-                            <th>Protein Per 100</th>
-                            <th>Fat Per 100</th>
-                            <th>Carbohydrate Per 100</th>
-                            <th>Calorie Per 100</th>
-                        </tr>
+                    <tr>
+                        <th>Title</th>
+                        <th>Weight</th>
+                        <th>Protein</th>
+                        <th>Fat</th>
+                        <th>Carbohydrate</th>
+                        <th>Calorie</th>
+                        <th>Protein Per 100</th>
+                        <th>Fat Per 100</th>
+                        <th>Carbohydrate Per 100</th>
+                        <th>Calorie Per 100</th>
+                    </tr>
                     </thead>
                     <tbody>
-                       {
-                            rows.map((row, i) => 
-                                <tr key={i}>
-                                    <td contentEditable suppressContentEditableWarning>{row.title}</td>
-                                    <td contentEditable suppressContentEditableWarning 
-                                        onBlur={this.onChangeRow(i)} name="weight">{row.weight}</td>
-                                    <td>{row.protein}</td>
-                                    <td>{row.fat}</td>
-                                    <td>{row.carbohydrate}</td>
-                                    <td>{row.calorie}</td>
-                                    <td contentEditable suppressContentEditableWarning 
-                                        onBlur={this.onChangeRow(i)} name="proteinPer">{row.proteinPer}</td>
-                                    <td contentEditable suppressContentEditableWarning 
-                                        onBlur={this.onChangeRow(i)} name="fatPer">{row.fatPer}</td>
-                                    <td contentEditable suppressContentEditableWarning 
-                                        onBlur={this.onChangeRow(i)} name="carbohydratePer">{row.carbohydratePer}</td>
-                                    <td contentEditable suppressContentEditableWarning 
-                                        onBlur={this.onChangeRow(i)} name="caloriePer">{row.caloriePer}</td>
-                                </tr>    
-                            )
-                       }
-                       <tr>
-                            <td>Total</td>
-                            <td></td>
-                            <td>{protein}</td>
-                            <td>{fat}</td>
-                            <td>{carbohydrate}</td>
-                            <td>{calorie}</td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                        </tr>
-                        <tr>
-                            <td>Goal</td>
-                            <td></td>
-                            <td>{goalProtein}</td>
-                            <td>{goalFat}</td>
-                            <td>{goalCarbohydrate}</td>
-                            <td>{goalIntake}</td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                        </tr>
+                    {
+                        rows.map((row, i) =>
+                            <tr key={i}>
+                                <td contentEditable suppressContentEditableWarning>{row.title}</td>
+                                <td contentEditable suppressContentEditableWarning
+                                    onBlur={this.onChangeRow(i)} name="weight">{row.weight}</td>
+                                <td>{row.protein}</td>
+                                <td>{row.fat}</td>
+                                <td>{row.carbohydrate}</td>
+                                <td>{row.calorie}</td>
+                                <td contentEditable suppressContentEditableWarning
+                                    onBlur={this.onChangeRow(i)} name="proteinPer">{row.proteinPer}</td>
+                                <td contentEditable suppressContentEditableWarning
+                                    onBlur={this.onChangeRow(i)} name="fatPer">{row.fatPer}</td>
+                                <td contentEditable suppressContentEditableWarning
+                                    onBlur={this.onChangeRow(i)} name="carbohydratePer">{row.carbohydratePer}</td>
+                                <td contentEditable suppressContentEditableWarning
+                                    onBlur={this.onChangeRow(i)} name="caloriePer">{row.caloriePer}</td>
+                            </tr>
+                        )
+                    }
+                    <tr>
+                        <td>Total</td>
+                        <td></td>
+                        <td>{protein}</td>
+                        <td>{fat}</td>
+                        <td>{carbohydrate}</td>
+                        <td>{calorie}</td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td>Goal</td>
+                        <td></td>
+                        <td>{goalProtein}</td>
+                        <td>{goalFat}</td>
+                        <td>{goalCarbohydrate}</td>
+                        <td>{goalIntake}</td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
                     </tbody>
                 </Table>
             </>

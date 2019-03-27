@@ -1,10 +1,10 @@
-import React, { Component }  from 'react';
+import React, { Component } from 'react';
 
 import { Header } from '../header/Header';
 
 class Products extends Component {
     render() {
-        return(
+        return (
             <div>
                 <Header/>
                 Products
