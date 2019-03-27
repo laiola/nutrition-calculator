@@ -1,9 +1,9 @@
 import { connect } from 'react-redux'
 
 import Calculator from '../tab/Calculator';
-import { 
-    characteristicsInputChange, 
-    submitCharacteristics, 
+import {
+    characteristicsInputChange,
+    submitCharacteristics,
     submitGoalRatio,
     submitNutritionRatio
 } from '../../actions/ActionCreator';
@@ -14,16 +14,16 @@ const mapStateToProps = state => ({
 });
 
 const mapDispatchToProps = dispatch => ({
-    handleCharacteristicsChange: 
+    handleCharacteristicsChange:
         (inputName, inputValue) => dispatch(characteristicsInputChange(inputName, inputValue)),
-   
+
     handleSubmitCharacteristics: () => dispatch(submitCharacteristics()),
 
-    handleGoalRatioSubmit: 
+    handleGoalRatioSubmit:
         (goalRatio, totalIntake) => dispatch(submitGoalRatio(goalRatio, totalIntake)),
 
-    handleNutritionSubmit: 
-        (proteinRatio, fatRatio, weight) => 
+    handleNutritionSubmit:
+        (proteinRatio, fatRatio, weight) =>
             dispatch(submitNutritionRatio(proteinRatio, fatRatio, weight)),
 });
 

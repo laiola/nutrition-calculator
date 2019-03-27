@@ -4,7 +4,7 @@ import { HashRouter, Route, Switch } from 'react-router-dom'
 import { combineReducers, createStore } from 'redux';
 
 import { CalculatorContainer } from './components/container/CalculatorContainer';
-import Menu from './components/tab/Menu';
+import { MenuContainer } from './components/container/MenuContainer';
 import Products from './components/tab/Products';
 import About from './components/tab/About';
 import NotFoundPage from './components/tab/NotFoundPage';
@@ -25,7 +25,7 @@ class App extends Component {
                     <Switch>
                         <Route exact path="/" component={CalculatorContainer}/>
                         <Route path="/calculator" component={CalculatorContainer}/>
-                        <Route path="/menu" component={Menu}/>
+                        <Route path="/menu" component={MenuContainer}/>
                         <Route path="/products" component={Products}/>
                         <Route path="/about" component={About}/>
                         <Route component={NotFoundPage}/>
