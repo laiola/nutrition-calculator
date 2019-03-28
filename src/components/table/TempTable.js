@@ -35,17 +35,16 @@ class TempTable extends Component {
     };
 
     onChangeRow = i => event => {
-        this.props.onChangeRow(i, event.target.getAttribute('name'), event.target.innerText);
+        const target = event.target;
+        this.props.onChangeRow(i, target.getAttribute('name'), target.innerText);
     };
 
-    // todo fix rows initialization and write test
     render() {
         const {
-            rows = [], protein, fat, carbohydrate, calorie,
+            rows, protein, fat, carbohydrate, calorie,
             goalIntake, goalProtein, goalFat, goalCarbohydrate
         } = this.props;
 
-        console.debug();
         return (
             <>
                 <ProductSelect onSelect={this.onAddPresetRow}/>
