@@ -28,6 +28,7 @@ describe('Characteristic Reducer', () => {
             .toEqual(CharacteristicReducerMock.expectedSubmitState);
     });
 
+    // todo mock local storage
     it(`should handle ${ActionNames.SUBMIT_CHARACTERISTICS} with initial state`, () => {
         const action = submitCharacteristics();
         expect(characteristics(undefined, action))
