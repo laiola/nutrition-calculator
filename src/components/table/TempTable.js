@@ -32,6 +32,7 @@ class TempTable extends Component {
 
     onAddPresetRow = product => {
         this.props.onAddRow({ ...product });
+        this.props.updateNutrition();
     };
 
     onChangeRow = i => event => {

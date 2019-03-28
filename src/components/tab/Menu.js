@@ -3,14 +3,14 @@ import React from 'react';
 import { Header } from '../header/Header';
 import TempTable from '../table/TempTable';
 
-export const Menu = ({ goalNutrition, menu, onAddRow, onChangeRow }) => {
+export const Menu = ({ goalNutrition, menu, onAddRow, onChangeRow, updateNutrition }) => {
     const { goalIntake, protein: goalProtein, fat: goalFat, carbohydrate: goalCarbohydrate } = goalNutrition;
     const { rows, protein, fat, carbohydrate, calorie } = menu;
     return (
         <div>
             <Header/>
             <TempTable
-                goalIntake={goalProtein}
+                goalIntake={goalIntake}
                 goalProtein={goalProtein}
                 goalFat={goalFat}
                 goalCarbohydrate={goalCarbohydrate}
@@ -21,6 +21,7 @@ export const Menu = ({ goalNutrition, menu, onAddRow, onChangeRow }) => {
                 calorie={calorie}
                 onAddRow={onAddRow}
                 onChangeRow={onChangeRow}
+                updateNutrition={updateNutrition}
             />
         </div>
     );

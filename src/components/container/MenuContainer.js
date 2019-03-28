@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
 import { Menu } from '../tab/Menu';
-import { addRowToMenu, changeRow } from '../../actions/ActionCreator';
+import { addRowToMenu, calculateNutrition, changeRow } from '../../actions/ActionCreator';
 
 const mapStateToProps = state => {
     return {
@@ -14,6 +14,8 @@ const mapDispatchToProps = dispatch => ({
         row => dispatch(addRowToMenu(row)),
     onChangeRow:
         (rowIndex, inputName, inputValue) => dispatch(changeRow(rowIndex, inputName, inputValue)),
+    updateNutrition:
+        () => dispatch(calculateNutrition()),
 });
 
 export const MenuContainer = connect(

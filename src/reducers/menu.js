@@ -39,6 +39,12 @@ export const menu = (
                 ...getUpdatedNutrition(updatedRows),
             }
         }
+        case ActionNames.CALCULATE_MENU_NUTRITION: {
+            return {
+                ...state,
+                ...getUpdatedNutrition(state.rows)
+            }
+        }
         default:
             return state;
 

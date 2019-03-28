@@ -46,3 +46,9 @@ export const changeRow = (rowIndex, inputName, inputValue) => (
         inputValue
     }
 );
+
+export const calculateNutrition = () => (
+    {
+        type: ActionNames.CALCULATE_MENU_NUTRITION
+    }
+);
