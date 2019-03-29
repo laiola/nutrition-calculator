@@ -38,6 +38,13 @@ export const addRowToMenu = row => (
     }
 );
 
+export const deleteMenuRow = rowIndex => (
+    {
+        type: ActionNames.DELETE_MENU_ROW,
+        rowIndex
+    }
+);
+
 export const changeRow = (rowIndex, inputName, inputValue) => (
     {
         type: ActionNames.MENU_ROW_INPUT_CHANGE,

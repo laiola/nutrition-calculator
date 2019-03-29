@@ -9,6 +9,15 @@
     margin: 16px;
 }
 
+.delete-row-btn {
+    width: 130px;
+}
+
+.delete-row-td {
+    padding: 0px;
+    width: 130px;
+}
+
 .btn-container {
     position: relative;
 }

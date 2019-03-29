@@ -6,6 +6,7 @@ export const CHARACTERISTICS_INPUT_CHANGE = 'CHARACTERISTICS_INPUT_CHANGE';
 export const ADD_ROW_TO_MENU = 'ADD_ROW_TO_MENU';
 export const MENU_ROW_INPUT_CHANGE = 'MENU_ROW_INPUT_CHANGE';
 export const CALCULATE_MENU_NUTRITION = 'CALCULATE_MENU_NUTRITION';
+export const DELETE_MENU_ROW = 'DELETE_MENU_ROW';
 
 export const ActionNames = Object.freeze({
     SUBMIT_CHARACTERISTICS,
@@ -16,4 +17,5 @@ export const ActionNames = Object.freeze({
     ADD_ROW_TO_MENU,
     MENU_ROW_INPUT_CHANGE,
     CALCULATE_MENU_NUTRITION,
+    DELETE_MENU_ROW,
 });

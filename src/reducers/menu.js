@@ -45,6 +45,15 @@ export const menu = (
                 ...getUpdatedNutrition(state.rows)
             }
         }
+        case ActionNames.DELETE_MENU_ROW: {
+            const rows = [...state.rows];
+            rows.splice(action.rowIndex, 1);
+
+            return {
+                ...state,
+                rows
+            }
+        }
         default:
             return state;
 

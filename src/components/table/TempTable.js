@@ -40,6 +40,11 @@ class TempTable extends Component {
         this.props.onChangeRow(i, target.getAttribute('name'), target.innerText);
     };
 
+    onDeleteRow = i => () => {
+        this.props.onDeleteRow(i);
+        this.props.updateNutrition();
+    };
+
     render() {
         const {
             rows, protein, fat, carbohydrate, calorie,
@@ -65,6 +70,7 @@ class TempTable extends Component {
                         <th>Fat Per 100</th>
                         <th>Carbohydrate Per 100</th>
                         <th>Calorie Per 100</th>
+                        <th></th>
                     </tr>
                     </thead>
                     <tbody>
@@ -86,6 +92,11 @@ class TempTable extends Component {
                                     onBlur={this.onChangeRow(i)} name="carbohydratePer">{row.carbohydratePer}</td>
                                 <td contentEditable suppressContentEditableWarning
                                     onBlur={this.onChangeRow(i)} name="caloriePer">{row.caloriePer}</td>
+                                <td className="delete-row-td">
+                                    <button className="btn btn-danger delete-row-btn"
+                                            onClick={this.onDeleteRow(i)}>Delete row
+                                    </button>
+                                </td>
                             </tr>
                         )
                     }
@@ -100,6 +111,7 @@ class TempTable extends Component {
                         <td></td>
                         <td></td>
                         <td></td>
+                        <td></td>
                     </tr>
                     <tr>
                         <td>Goal</td>
@@ -108,6 +120,7 @@ class TempTable extends Component {
                         <td>{goalFat}</td>
                         <td>{goalCarbohydrate}</td>
                         <td>{goalIntake}</td>
+                        <td></td>
                         <td></td>
                         <td></td>
                         <td></td>
