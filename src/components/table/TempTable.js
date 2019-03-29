@@ -5,7 +5,7 @@ import ProductSelect from './ProductSelect';
 
 import './Table.css';
 
-const initialRow = {
+export const initialRow = {
     title: 'Input title',
     weight: 0,
     protein: 0,

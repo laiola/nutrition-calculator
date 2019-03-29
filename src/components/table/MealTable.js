@@ -4,7 +4,7 @@ import EatingContainer from '../container/EatingContainer';
 
 import './MealTable.css';
 
-// TODO IS NOT USING
+// TODO DELETE?
 const headers = ['Title', 'Weight', 'P', 'F', 'C', 'Calorie', 'Edit Nutrition'];
 const initialEatingContainer = {
     protein: 0,

@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import ProductModal from '../modal/ProductModal';
 import ProductRow from '../table/ProductRow';
 
+// TODO DELETE?
 class EatingContainer extends Component {
     constructor(props) {
         super(props);
