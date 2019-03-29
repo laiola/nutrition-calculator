@@ -4,6 +4,8 @@ import { nutrition } from '../../../reducers/nutrition';
 import { submitGoalRatio, submitNutritionRatio } from '../../../actions/ActionCreator';
 
 describe('Nutrition Reducer', () => {
+    afterEach(() => localStorage.clear());
+
     it('should return the initial state', () => {
         expect(nutrition(undefined, {}))
             .toEqual(NutritionReducerMock.initialState);
