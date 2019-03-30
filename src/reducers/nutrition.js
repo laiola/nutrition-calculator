@@ -12,7 +12,7 @@ export const initialNutritionState = {
 export const nutrition = (
     state = getOrDefault(NUTRITION_KEY, { ...initialNutritionState }),
     action) => {
-    switch(action.type) {
+    switch (action.type) {
         case ActionNames.SUBMIT_GOAL_RATIO: {
             const { goalRatio, totalIntake } = action;
             const updatedState = {

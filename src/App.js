@@ -5,17 +5,18 @@ import { combineReducers, createStore } from 'redux';
 
 import { CalculatorContainer } from './components/container/CalculatorContainer';
 import { MenuContainer } from './components/container/MenuContainer';
-import Products from './components/tab/Products';
+import { ProductsContainer } from './components/container/ProductsContainer';
 import About from './components/tab/About';
 import NotFoundPage from './components/tab/NotFoundPage';
 import { characteristics } from './reducers/characteristics';
 import { nutrition } from './reducers/nutrition';
 import { menu } from './reducers/menu';
+import { products } from './reducers/products';
 
 import 'bootswatch/dist/minty/bootstrap.css';
 
 const store = createStore(
-    combineReducers({ characteristics, nutrition, menu })
+    combineReducers({ characteristics, nutrition, menu, products })
 );
 
 class App extends Component {
@@ -27,7 +28,7 @@ class App extends Component {
                         <Route exact path="/" component={CalculatorContainer}/>
                         <Route path="/calculator" component={CalculatorContainer}/>
                         <Route path="/menu" component={MenuContainer}/>
-                        <Route path="/products" component={Products}/>
+                        <Route path="/products" component={ProductsContainer}/>
                         <Route path="/about" component={About}/>
                         <Route component={NotFoundPage}/>
                     </Switch>

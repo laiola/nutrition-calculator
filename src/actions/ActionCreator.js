@@ -59,3 +59,18 @@ export const calculateNutrition = () => (
         type: ActionNames.CALCULATE_MENU_NUTRITION
     }
 );
+
+export const submitProduct = (productIndex, product) => (
+    {
+        type: ActionNames.SUBMIT_PRODUCT,
+        productIndex,
+        product
+    }
+);
+
+export const deleteProduct = productIndex => (
+    {
+        type: ActionNames.DELETE_PRODUCT,
+        productIndex
+    }
+);

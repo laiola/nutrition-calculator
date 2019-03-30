@@ -8,7 +8,7 @@ class Table extends Component {
         super(props);
         this.state = {
             isDisplayModal: false,
-            editable: false,
+            editIndex: false,
         }
     }
 
@@ -21,7 +21,7 @@ class Table extends Component {
     onEdit = i => () => {
         this.setState({
             isDisplayModal: true,
-            editable: i,
+            editIndex: i,
         });
     };
 
@@ -29,29 +29,30 @@ class Table extends Component {
         this.props.onDelete(i);
     };
 
-    onSubmit = i => row => {
-        this.props.onSubmit(i, row);
+    onSubmit = row => {
+        this.props.onSubmit(this.state.editIndex, row);
     };
 
     onClose = () => {
         this.setState({
             isDisplayModal: false,
-            editable: false,
+            editIndex: false,
         })
     };
 
     render() {
         const { headers, rows } = this.props;
-        const { isDisplayModal, editable } = this.state;
+        const { isDisplayModal, editIndex } = this.state;
+        const product = (editIndex || editIndex === 0) && rows[editIndex];
 
         return (
             <div className="table-container">
                 {
                     isDisplayModal
-                    && <ProductModal onSubmit={this.onSubmit(editable)}
+                    && <ProductModal onSubmit={this.onSubmit}
                                      onClose={this.onClose}
                                      isDisplayedProductModal={isDisplayModal}
-                                     product={(editable || editable === 0) && rows[editable]}
+                                     product={product}
                     />
                 }
                 <div className="btn-container">
@@ -79,7 +80,7 @@ class Table extends Component {
                                         )
                                     }
                                     <button className="btn btn-danger delete-row-btn"
-                                            onClick={this.onDelete(i)}>Delete row
+                                            onClick={this.onDelete(i)}>Delete
                                     </button>
                                 </div>
                             )

@@ -13,5 +13,6 @@ export const getOrDefault = (key, defaultValue) => {
 
 export const CHARACTERISTIC_KEY = 'characteristics';
 export const NUTRITION_KEY = 'nutrition';
+export const PRODUCTS_KEY = 'products';
 
 const isNotEmptyObject = obj => obj && Object.keys(obj).length;
