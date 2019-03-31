@@ -67,6 +67,7 @@ class Table extends Component {
                                 </div>
                             )
                         }
+                        <div className="header"></div>
                     </div>
                     <div className="content">
                         {
@@ -79,9 +80,11 @@ class Table extends Component {
                                             </div>
                                         )
                                     }
-                                    <button className="btn btn-danger delete-row-btn"
-                                            onClick={this.onDelete(i)}>Delete
-                                    </button>
+                                    <div className="cell">
+                                        <button className="btn btn-danger delete-row-btn"
+                                                onClick={this.onDelete(i)}>Delete
+                                        </button>
+                                    </div>
                                 </div>
                             )
                         }

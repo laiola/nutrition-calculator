@@ -8,11 +8,11 @@ const headers = [
     'Weight',
     'Protein',
     'Fat',
-    'Carbohydrate',
+    'Carbs',
     'Calorie',
     'Protein Per 100',
     'Fat Per 100',
-    'Carbohydrate Per 100',
+    'Carbs Per 100',
     'Calorie Per 100',
 ];
 
