@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 
-import './Table.css';
 import ProductModal from '../modal/ProductModal';
+
+import './Table2.css';
 
 class Table extends Component {
     constructor(props) {
@@ -55,21 +56,22 @@ class Table extends Component {
                                      product={product}
                     />
                 }
-                <div className="btn-container">
-                    <button className="btn btn-info add-row-btn" onClick={this.onAdd}>Add</button>
+                <div className="btn-container-1">
+                    <button className="btn btn-info add-btn" onClick={this.onAdd}>Add</button>
                 </div>
+
                 <div className="table-1">
-                    <div className="headers">
+                    <div className="row-1 headers">
                         {
                             headers.map((header, i) =>
-                                <div className="header" key={`${header}-${i}`}>
+                                <div className="cell header" key={`${header}-${i}`}>
                                     {header}
                                 </div>
                             )
                         }
-                        <div className="header"></div>
+                        <div className="cell header"></div>
                     </div>
-                    <div className="content">
+                    <div>
                         {
                             rows.map((row, i) =>
                                 <div className="row-1" key={`${row}-${i}`}>
@@ -81,7 +83,7 @@ class Table extends Component {
                                         )
                                     }
                                     <div className="cell">
-                                        <button className="btn btn-danger delete-row-btn"
+                                        <button className="btn btn-danger delete-btn"
                                                 onClick={this.onDelete(i)}>Delete
                                         </button>
                                     </div>
