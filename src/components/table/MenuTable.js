@@ -47,7 +47,8 @@ class MenuTable extends Component {
 
     getEditableCell = (value, name, rowIndex) => (
         <div className="cell">
-            <input type="text" className="cell-input" value={value} name={name} onChange={this.onChangeRow(rowIndex)}/>
+            <input type="number" className="cell-input" value={value} name={name}
+                   onChange={this.onChangeRow(rowIndex)}/>
         </div>
     );
 
@@ -78,7 +79,10 @@ class MenuTable extends Component {
                         {
                             rows.map((row, i) =>
                                 <div className="product-row" key={i}>
-                                    {this.getEditableCell(row.title, 'title', i)}
+                                    <div className="cell">
+                                        <input type="text" className="cell-input" value={row.title} name={'title'}
+                                               onChange={this.onChangeRow(i)}/>
+                                    </div>
                                     {this.getEditableCell(row.weight, 'weight', i)}
                                     <div className="cell">{row.protein}</div>
                                     <div className="cell">{row.fat}</div>
