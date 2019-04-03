@@ -1,7 +1,7 @@
 import React from 'react';
 
 import { Header } from '../header/Header';
-import Table from '../table/Table';
+import ProductTable from '../table/ProductTable';
 
 export const headers = [
     'Title',
@@ -19,7 +19,7 @@ export const headers = [
 export const Products = ({ products, onSubmit, onDelete }) => (
     <div>
         <Header/>
-        <Table
+        <ProductTable
             headers={headers}
             rows={products}
             onSubmit={onSubmit}

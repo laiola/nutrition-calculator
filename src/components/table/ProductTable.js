@@ -4,7 +4,7 @@ import ProductModal from '../modal/ProductModal';
 
 import './Table.css';
 
-class Table extends Component {
+class ProductTable extends Component {
     constructor(props) {
         super(props);
         this.state = {
@@ -97,4 +97,4 @@ class Table extends Component {
     }
 }
 
-export default Table;
+export default ProductTable;
