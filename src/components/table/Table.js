@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 
 import ProductModal from '../modal/ProductModal';
 
-import './Table2.css';
+import './Table.css';
 
 class Table extends Component {
     constructor(props) {
@@ -56,12 +56,12 @@ class Table extends Component {
                                      product={product}
                     />
                 }
-                <div className="btn-container-1">
+                <div className="btn-container">
                     <button className="btn btn-info add-btn" onClick={this.onAdd}>Add</button>
                 </div>
 
-                <div className="table-1">
-                    <div className="row-1 headers">
+                <div className="table">
+                    <div className="product-row headers">
                         {
                             headers.map((header, i) =>
                                 <div className="cell header" key={`${header}-${i}`}>
@@ -69,12 +69,12 @@ class Table extends Component {
                                 </div>
                             )
                         }
-                        <div className="cell header delete-row"></div>
+                        <div className="cell header delete-row"/>
                     </div>
                     <div>
                         {
                             rows.map((row, i) =>
-                                <div className="row-1" key={`${row}-${i}`}>
+                                <div className="product-row" key={i}>
                                     {
                                         Object.keys(row).map((key, j) =>
                                             <div className="cell" key={`${key}-${j}`} onClick={this.onEdit(i)}>

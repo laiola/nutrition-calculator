@@ -1,23 +1,90 @@
-.add-row-btn {
-    width: 230px;
-    align-self: center;
+.btn-container {
+    margin: 1%;
+    float: right;
+}
 
-    /* TODO FIX WHEN LOW WIDTH */
-    right: 0;
-    bottom: 0;
-    position: absolute;
+.table {
+    text-align: center;
+    overflow-x: auto;
+    clear: both;
+}
+
+.product-row {
+    align-items: center;
+    width: 100%;
+    min-width: 1200px;
+    display: flex;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+    padding: 5px 15px;
+}
+
+.product-row:hover {
+    background-color: #ececec;
+}
+
+.headers {
+    border-top: 1px solid rgba(0, 0, 0, 0.05);
+    background-color: #f8f9fa;
+    padding: 8px 15px;
+}
+
+.headers:hover {
+    background-color: #f8f9fa;
+}
+
+.cell {
+    flex-grow: 1;
+
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+
+    padding: 0.25%;
+    width: 9%;
+    min-width: 100px;
+}
+
+.header {
+    font-size: 16px;
+    font-weight: 700;
+}
+
+.delete-btn {
+    width: 130px;
+}
+
+.delete-row {
+    min-width: 140px;
+}
+
+.add-btn {
+    width: 230px;
+}
+
+.add-row-btn {
+    min-width: 230px;
+    align-self: flex-end;
     margin: 16px;
 }
 
-.delete-row-btn {
-    width: 130px;
+.product-select-container {
+    display: flex;
+    justify-content: space-between;
 }
 
-.delete-row-td {
-    padding: 0;
-    width: 130px;
+.cell-input {
+    text-align: center;
+    width: 100%;
+    border: none;
+    color: #888;
 }
 
-.btn-container {
-    position: relative;
+@media (max-width: 760px) {
+    .product-select-container {
+        display: grid;
+    }
+
+    .add-row-btn {
+        margin-top: 0;
+    }
 }

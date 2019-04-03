@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import { Table } from 'react-bootstrap';
 
+import { headers } from '../tab/Products';
 import ProductSelect from './ProductSelect';
 
 import './Table.css';
@@ -37,13 +37,19 @@ class TempTable extends Component {
 
     onChangeRow = i => event => {
         const target = event.target;
-        this.props.onChangeRow(i, target.getAttribute('name'), target.innerText);
+        this.props.onChangeRow(i, target.name, target.value);
     };
 
     onDeleteRow = i => () => {
         this.props.onDeleteRow(i);
         this.props.updateNutrition();
     };
+
+    getEditableCell = (value, name, rowIndex) => (
+        <div className="cell">
+            <input type="text" className="cell-input" value={value} name={name} onChange={this.onChangeRow(rowIndex)}/>
+        </div>
+    );
 
     render() {
         const {
@@ -53,81 +59,71 @@ class TempTable extends Component {
 
         return (
             <>
-                <ProductSelect onSelect={this.onAddPresetRow}/>
-                <div className="btn-container">
+                <div className="product-select-container">
+                    <ProductSelect onSelect={this.onAddPresetRow}/>
                     <button className="btn btn-info add-row-btn" onClick={this.onAddRow}>Add row</button>
                 </div>
-                <Table striped bordered hover>
-                    <thead>
-                    <tr>
-                        <th>Title</th>
-                        <th>Weight</th>
-                        <th>Protein</th>
-                        <th>Fat</th>
-                        <th>Carbohydrate</th>
-                        <th>Calorie</th>
-                        <th>Protein Per 100</th>
-                        <th>Fat Per 100</th>
-                        <th>Carbohydrate Per 100</th>
-                        <th>Calorie Per 100</th>
-                        <th></th>
-                    </tr>
-                    </thead>
-                    <tbody>
-                    {
-                        rows.map((row, i) =>
-                            <tr key={i}>
-                                <td contentEditable suppressContentEditableWarning>{row.title}</td>
-                                <td contentEditable suppressContentEditableWarning
-                                    onBlur={this.onChangeRow(i)} name="weight">{row.weight}</td>
-                                <td>{row.protein}</td>
-                                <td>{row.fat}</td>
-                                <td>{row.carbohydrate}</td>
-                                <td>{row.calorie}</td>
-                                <td contentEditable suppressContentEditableWarning
-                                    onBlur={this.onChangeRow(i)} name="proteinPer">{row.proteinPer}</td>
-                                <td contentEditable suppressContentEditableWarning
-                                    onBlur={this.onChangeRow(i)} name="fatPer">{row.fatPer}</td>
-                                <td contentEditable suppressContentEditableWarning
-                                    onBlur={this.onChangeRow(i)} name="carbohydratePer">{row.carbohydratePer}</td>
-                                <td contentEditable suppressContentEditableWarning
-                                    onBlur={this.onChangeRow(i)} name="caloriePer">{row.caloriePer}</td>
-                                <td className="delete-row-td">
-                                    <button className="btn btn-danger delete-row-btn"
-                                            onClick={this.onDeleteRow(i)}>Delete row
-                                    </button>
-                                </td>
-                            </tr>
-                        )
-                    }
-                    <tr>
-                        <td>Total</td>
-                        <td></td>
-                        <td>{protein}</td>
-                        <td>{fat}</td>
-                        <td>{carbohydrate}</td>
-                        <td>{calorie}</td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                    </tr>
-                    <tr>
-                        <td>Goal</td>
-                        <td></td>
-                        <td>{goalProtein}</td>
-                        <td>{goalFat}</td>
-                        <td>{goalCarbohydrate}</td>
-                        <td>{goalIntake}</td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                    </tr>
-                    </tbody>
-                </Table>
+                <div className="table">
+                    <div className="product-row headers">
+                        {
+                            headers.map((header, i) =>
+                                <div className="cell header" key={`${header}-${i}`}>
+                                    {header}
+                                </div>
+                            )
+                        }
+                        <div className="cell header delete-row"/>
+                    </div>
+                    <div>
+                        {
+                            rows.map((row, i) =>
+                                <div className="product-row" key={i}>
+                                    {this.getEditableCell(row.title, 'title', i)}
+                                    {this.getEditableCell(row.weight, 'weight', i)}
+                                    <div className="cell">{row.protein}</div>
+                                    <div className="cell">{row.fat}</div>
+                                    <div className="cell">{row.carbohydrate}</div>
+                                    <div className="cell">{row.calorie}</div>
+                                    {this.getEditableCell(row.proteinPer, 'proteinPer', i)}
+                                    {this.getEditableCell(row.fatPer, 'fatPer', i)}
+                                    {this.getEditableCell(row.carbohydratePer, 'carbohydratePer', i)}
+                                    {this.getEditableCell(row.caloriePer, 'caloriePer', i)}
+                                    <div className="cell delete-row">
+                                        <button className="btn btn-danger delete-row-btn"
+                                                onClick={this.onDeleteRow(i)}>Delete row
+                                        </button>
+                                    </div>
+                                </div>
+                            )
+                        }
+                        <div className="product-row">
+                            <div className="cell">Total</div>
+                            <div className="cell"/>
+                            <div className="cell">{protein}</div>
+                            <div className="cell">{fat}</div>
+                            <div className="cell">{carbohydrate}</div>
+                            <div className="cell">{calorie}</div>
+                            <div className="cell"/>
+                            <div className="cell"/>
+                            <div className="cell"/>
+                            <div className="cell"/>
+                            <div className="cell delete-row"/>
+                        </div>
+                        <div className="product-row">
+                            <div className="cell">Goal</div>
+                            <div className="cell"/>
+                            <div className="cell">{goalProtein}</div>
+                            <div className="cell">{goalFat}</div>
+                            <div className="cell">{goalCarbohydrate}</div>
+                            <div className="cell">{goalIntake}</div>
+                            <div className="cell"/>
+                            <div className="cell"/>
+                            <div className="cell"/>
+                            <div className="cell"/>
+                            <div className="cell delete-row"/>
+                        </div>
+                    </div>
+                </div>
             </>
         );
     }

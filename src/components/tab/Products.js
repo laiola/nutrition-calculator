@@ -3,7 +3,7 @@ import React from 'react';
 import { Header } from '../header/Header';
 import Table from '../table/Table';
 
-const headers = [
+export const headers = [
     'Title',
     'Weight',
     'Protein',
