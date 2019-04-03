@@ -1,7 +1,7 @@
 import React from 'react';
 
 import { Header } from '../header/Header';
-import TempTable from '../table/TempTable';
+import MenuTable from '../table/MenuTable';
 
 export const Menu = ({ goalNutrition, menu, onAddRow, onChangeRow, updateNutrition, onDeleteRow }) => {
     const { goalIntake, protein: goalProtein, fat: goalFat, carbohydrate: goalCarbohydrate } = goalNutrition;
@@ -9,7 +9,7 @@ export const Menu = ({ goalNutrition, menu, onAddRow, onChangeRow, updateNutriti
     return (
         <div>
             <Header/>
-            <TempTable
+            <MenuTable
                 goalIntake={goalIntake}
                 goalProtein={goalProtein}
                 goalFat={goalFat}

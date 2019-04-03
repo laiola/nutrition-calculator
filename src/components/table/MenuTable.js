@@ -18,7 +18,7 @@ export const initialRow = {
     caloriePer: 0,
 };
 
-class TempTable extends Component {
+class MenuTable extends Component {
     static defaultProps = {
         goalIntake: 0,
         goalProtein: 0,
@@ -129,4 +129,4 @@ class TempTable extends Component {
     }
 }
 
-export default TempTable;
+export default MenuTable;

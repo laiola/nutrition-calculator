@@ -1,5 +1,5 @@
 import { initialMenuState } from '../../reducers/menu';
-import { initialRow } from '../../components/table/TempTable';
+import { initialRow } from '../../components/table/MenuTable';
 
 export const MenuReducerMock = {
     initialState: {
