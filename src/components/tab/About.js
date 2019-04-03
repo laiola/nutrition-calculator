@@ -21,7 +21,7 @@ class About extends Component {
                 <div className="about">
                     <h5 className="text-primary">Step 1. Calculate your basal metabolic rate(BMR)</h5>
                     <p className="lead">
-                        The Mifflin St Jeor Equation:
+                        Harris–Benedict equation:
                     </p>
                     <div className="paragraph">
                         <MathJax.Context input='tex'>
