@@ -5,3 +5,22 @@
 .paragraph {
     margin-bottom: 2%;
 }
+
+.const-table {
+    width: 800px;
+    margin: 0.5% 0;
+}
+
+.const-table th, .const-table td {
+    border-bottom: 2px solid #ececec;
+    padding: 10px;
+}
+
+.tips-list {
+    width: 80%;
+    text-align: justify;
+}
+
+.tips-list li {
+    margin: 0.5%;
+}
