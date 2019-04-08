@@ -1,4 +1,4 @@
-# Nutrtion Calculator
+# Nutrition Calculator
 The project is a simple nutrition calculator that using [Harris–Benedict equation](https://en.wikipedia.org/wiki/Harris%E2%80%93Benedict_equation) revised by Mifflin and St Jeor.
 
 ## Step 1. Individual's basal metabolic rate (BMR)
@@ -36,4 +36,4 @@ Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 Launches the test runner in the interactive watch mode.<br>
 
 # Demo
-To view project open [Nutrtion_Calculator](link).
+To view project open [Nutrition_Calculator](link).
