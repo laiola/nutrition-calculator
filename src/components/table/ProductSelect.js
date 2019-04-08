@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import { Form } from 'react-bootstrap';
 
 import ProductModal from '../modal/ProductModal';
@@ -11,6 +12,10 @@ const PRODUCTS_KEY = 'products';
 class ProductSelect extends Component {
     static defaultProps = {
         onSelect: f => f,
+    };
+
+    static propTypes = {
+        onSelect: PropTypes.func,
     };
 
     constructor(props) {

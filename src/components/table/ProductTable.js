@@ -1,10 +1,18 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 
 import ProductModal from '../modal/ProductModal';
 
 import './Table.css';
 
 class ProductTable extends Component {
+    static propTypes = {
+        onDelete: PropTypes.func.isRequired,
+        onSubmit: PropTypes.func.isRequired,
+        headers: PropTypes.array,
+        rows: PropTypes.array,
+    };
+
     constructor(props) {
         super(props);
         this.state = {

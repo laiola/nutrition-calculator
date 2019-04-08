@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 import { Header } from '../header/Header';
 import MenuTable from '../table/MenuTable';
@@ -26,4 +27,13 @@ export const Menu = ({ goalNutrition, menu, onAddRow, onChangeRow, updateNutriti
             />
         </div>
     );
+};
+
+Menu.propTypes = {
+    goalNutrition: PropTypes.object.isRequired,
+    menu: PropTypes.object.isRequired,
+    onAddRow: PropTypes.func.isRequired,
+    onChangeRow: PropTypes.func.isRequired,
+    updateNutrition: PropTypes.func.isRequired,
+    onDeleteRow: PropTypes.func.isRequired
 };

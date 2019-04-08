@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 
 import { headers } from '../tab/Products';
 import ProductSelect from './ProductSelect';
@@ -24,6 +25,22 @@ class MenuTable extends Component {
         goalProtein: 0,
         goalFat: 0,
         goalCarbohydrate: 0
+    };
+
+    static propTypes = {
+        goalIntake: PropTypes.number,
+        goalProtein: PropTypes.number,
+        goalFat: PropTypes.number,
+        goalCarbohydrate: PropTypes.number,
+        onAddRow: PropTypes.func.isRequired,
+        updateNutrition: PropTypes.func.isRequired,
+        onChangeRow: PropTypes.func.isRequired,
+        onDeleteRow: PropTypes.func.isRequired,
+        rows: PropTypes.array.isRequired,
+        protein: PropTypes.number.isRequired,
+        fat: PropTypes.number.isRequired,
+        carbohydrate: PropTypes.number.isRequired,
+        calorie: PropTypes.number.isRequired,
     };
 
     onAddRow = () => {

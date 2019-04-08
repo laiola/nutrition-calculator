@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 
 import { Header } from '../header/Header';
 import { Characteristics } from '../characteristics/Characteristics';
@@ -7,6 +8,20 @@ import { NutritionRatioSelector } from '../nutrition-selector/NutritionRatioSele
 import { NutritionDisplay } from '../nutrition-display/NutritionDisplay';
 
 class Calculator extends Component {
+    static propTypes = {
+        handleCharacteristicsChange: PropTypes.func.isRequired,
+        handleSubmitCharacteristics: PropTypes.func.isRequired,
+        handleGoalRatioSubmit: PropTypes.func.isRequired,
+        handleNutritionSubmit: PropTypes.func.isRequired,
+        nutrition: PropTypes.shape({
+            protein: PropTypes.number.isRequired,
+            fat: PropTypes.number.isRequired,
+            carbohydrate: PropTypes.number.isRequired,
+            goalIntake: PropTypes.number.isRequired
+        }),
+        characteristics: PropTypes.object.isRequired,
+    };
+
     handleChange = event => {
         this.props.handleCharacteristicsChange(event.target.name, event.target.value);
     };

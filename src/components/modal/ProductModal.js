@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import { Button, Col, Form, Modal } from 'react-bootstrap';
 import { calculateNutritionByWeight } from '../../helper/nutritionCalculator';
 
@@ -20,6 +21,12 @@ class ProductModal extends Component {
         onSubmit: f => f,
         onClose: f => f,
         isDisplayedProductModal: false,
+    };
+
+    static propTypes = {
+        onSubmit: PropTypes.func.isRequired,
+        onClose: PropTypes.func.isRequired,
+        isDisplayedProductModal: PropTypes.bool,
     };
 
     constructor(props) {
@@ -115,4 +122,17 @@ export const ProductForm = ({ handleSubmit, handleChange, product }) => {
             </Form>
         </div>
     )
+};
+
+ProductForm.propTypes = {
+    handleChange: PropTypes.func.isRequired,
+    handleSubmit: PropTypes.func.isRequired,
+    product: PropTypes.shape({
+        title: PropTypes.string,
+        weight: PropTypes.number,
+        proteinPer: PropTypes.number,
+        fatPer: PropTypes.number,
+        carbohydratePer: PropTypes.number,
+        caloriePer: PropTypes.number,
+    }),
 };

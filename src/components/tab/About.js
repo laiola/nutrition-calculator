@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 import { Header } from '../header/Header';
 
@@ -118,3 +119,8 @@ const ConstTable = ({ headers, rows }) => (
         </tbody>
     </table>
 );
+
+ConstTable.propTypes = {
+    headers: PropTypes.arrayOf(PropTypes.string),
+    rows: PropTypes.arrayOf(PropTypes.string),
+};

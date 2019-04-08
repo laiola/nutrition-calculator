@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 import { Header } from '../header/Header';
 import ProductTable from '../table/ProductTable';
@@ -27,3 +28,9 @@ export const Products = ({ products, onSubmit, onDelete }) => (
         />
     </div>
 );
+
+Products.propTypes = {
+    products: PropTypes.array.isRequired,
+    onSubmit: PropTypes.func.isRequired,
+    onDelete: PropTypes.func.isRequired,
+};
