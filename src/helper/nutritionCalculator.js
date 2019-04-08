@@ -31,15 +31,14 @@ export const calculateMacronutrient = (goalIntake, weight, fatRatio, proteinRati
     }
 };
 
-// todo round
 export const calculateNutritionByWeight = product => {
     const newProduct = { ...product };
     const weightCoef = product.weight / 100;
 
-    newProduct.protein = weightCoef * product.proteinPer;
-    newProduct.fat = weightCoef * product.fatPer;
-    newProduct.carbohydrate = weightCoef * product.carbohydratePer;
-    newProduct.calorie = weightCoef * product.caloriePer;
+    newProduct.protein = Math.round(weightCoef * product.proteinPer * 100) / 100;
+    newProduct.fat = Math.round(weightCoef * product.fatPer * 100) / 100;
+    newProduct.carbohydrate = Math.round(weightCoef * product.carbohydratePer * 100) / 100;
+    newProduct.calorie = Math.round(weightCoef * product.caloriePer * 100) / 100;
 
     return newProduct;
 };

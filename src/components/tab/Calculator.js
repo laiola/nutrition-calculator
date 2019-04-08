@@ -28,7 +28,6 @@ class Calculator extends Component {
         this.props.handleNutritionSubmit(proteinRatio, fatRatio, weight);
     };
 
-    // todo
     render() {
         const { goalRatio, proteinRatio, fatRatio, totalIntake } = this.props.characteristics;
         const { protein, fat, carbohydrate, goalIntake } = this.props.nutrition;
