@@ -37,10 +37,22 @@ class MenuTable extends Component {
         onChangeRow: PropTypes.func.isRequired,
         onDeleteRow: PropTypes.func.isRequired,
         rows: PropTypes.array.isRequired,
-        protein: PropTypes.number.isRequired,
-        fat: PropTypes.number.isRequired,
-        carbohydrate: PropTypes.number.isRequired,
-        calorie: PropTypes.number.isRequired,
+        protein: PropTypes.oneOfType([
+            PropTypes.number,
+            PropTypes.string
+        ]),
+        fat: PropTypes.oneOfType([
+            PropTypes.number,
+            PropTypes.string
+        ]),
+        carbohydrate: PropTypes.oneOfType([
+            PropTypes.number,
+            PropTypes.string
+        ]),
+        calorie: PropTypes.oneOfType([
+            PropTypes.number,
+            PropTypes.string
+        ]),
     };
 
     onAddRow = () => {

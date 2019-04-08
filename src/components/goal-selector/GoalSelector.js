@@ -39,5 +39,8 @@ export const GoalSelector = ({ goalRatio, handleChange, handleSubmit }) => (
 GoalSelector.propTypes = {
     handleChange: PropTypes.func.isRequired,
     handleSubmit: PropTypes.func.isRequired,
-    goalRatio: PropTypes.number,
+    goalRatio: PropTypes.oneOfType([
+        PropTypes.number,
+        PropTypes.string
+    ]),
 };

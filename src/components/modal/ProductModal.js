@@ -129,10 +129,25 @@ ProductForm.propTypes = {
     handleSubmit: PropTypes.func.isRequired,
     product: PropTypes.shape({
         title: PropTypes.string,
-        weight: PropTypes.number,
-        proteinPer: PropTypes.number,
-        fatPer: PropTypes.number,
-        carbohydratePer: PropTypes.number,
-        caloriePer: PropTypes.number,
+        weight: PropTypes.oneOfType([
+            PropTypes.number,
+            PropTypes.string
+        ]),
+        proteinPer: PropTypes.oneOfType([
+            PropTypes.number,
+            PropTypes.string
+        ]),
+        fatPer: PropTypes.oneOfType([
+            PropTypes.number,
+            PropTypes.string
+        ]),
+        carbohydratePer: PropTypes.oneOfType([
+            PropTypes.number,
+            PropTypes.string
+        ]),
+        caloriePer: PropTypes.oneOfType([
+            PropTypes.number,
+            PropTypes.string
+        ]),
     }),
 };

@@ -60,9 +60,18 @@ Characteristics.propTypes = {
             MALE,
             FEMALE
         ]),
-        weight: PropTypes.number,
-        height: PropTypes.number,
-        age: PropTypes.number,
+        weight: PropTypes.oneOfType([
+            PropTypes.number,
+            PropTypes.string
+        ]),
+        height: PropTypes.oneOfType([
+            PropTypes.number,
+            PropTypes.string
+        ]),
+        age: PropTypes.oneOfType([
+            PropTypes.number,
+            PropTypes.string
+        ]),
         activity: PropTypes.oneOf([
             NO_ACTIVITY,
             LOW_ACTIVITY,

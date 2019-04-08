@@ -41,6 +41,12 @@ export const NutritionRatioSelector = ({ handleSubmit, handleChange, proteinRati
 NutritionRatioSelector.propTypes = {
     handleSubmit: PropTypes.func.isRequired,
     handleChange: PropTypes.func.isRequired,
-    proteinRatio: PropTypes.number.isRequired,
-    fatRatio: PropTypes.number.isRequired,
+    proteinRatio: PropTypes.oneOfType([
+        PropTypes.number,
+        PropTypes.string
+    ]),
+    fatRatio: PropTypes.oneOfType([
+        PropTypes.number,
+        PropTypes.string
+    ]),
 };
