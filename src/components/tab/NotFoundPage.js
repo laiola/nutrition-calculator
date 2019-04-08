@@ -1,17 +1,22 @@
-import React, { Component } from 'react';
+import React from 'react';
+
 import { Header } from '../header/Header';
 
-class NotFoundPage extends Component {
-    render() {
-        return (
-            <div>
-                <Header/>
-                [404
-                Not Found] Image Link to home
-                Make sure the address is correct
-            </div>
-        )
-    }
-}
+import './NotFoundPage.css';
 
-export default NotFoundPage;
+const redirect = history => () => {
+    history.push('/calculator');
+};
+
+export const NotFoundPage = ({ history }) => (
+    <div className="not-found-container">
+        <Header/>
+        <div className="not-found-content">
+            <p className="main-text">
+                404
+            </p>
+            <p className="text">The page you are looking for not available!</p>
+            <button type="button" className="btn btn-warning btn-lg" onClick={redirect(history)}>GO TO HOME</button>
+        </div>
+    </div>
+);

@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 
 import { Header } from '../header/Header';
 
@@ -30,73 +30,67 @@ const NUTRITION_ROWS = [
     ['Total Carbohydrate', CARBOHYDRATE]
 ];
 
-class About extends Component {
-    render() {
-        return (
-            <div>
-                <Header/>
-                <div className="about">
-                    <div className="paragraph">
-                        <h4 className="text-primary">Nutrition Calculator</h4>
-                        <p>
-                            The project is a simple nutrition calculator that using <a
-                            href={"https://en.wikipedia.org/wiki/Harris%E2%80%93Benedict_equation"}>Harris–Benedict
-                            equation revised by Mifflin and St Jeor.</a>.
-                        </p>
-                    </div>
-                    <h5 className="text-primary">Step 1. Individual's basal metabolic rate (BMR)</h5>
-                    <div className="paragraph">
-                        <ConstTable headers={BMR_HEADERS} rows={BMR_ROWS}/>
-                    </div>
-
-                    <h5 className="text-primary">Step 2. Total Intake</h5>
-                    <div className="paragraph">
-                        <ConstTable headers={TOTAL_INTAKE_HEADERS} rows={TOTAL_INTAKE_ROWS}/>
-                    </div>
-
-                    <h5 className="text-primary">Step 3. Reference Daily Intake</h5>
-                    <div className="paragraph">
-                        <ConstTable headers={NUTRITION_HEADERS} rows={NUTRITION_ROWS}/>
-                    </div>
-
-                    <h5 className="text-primary">Nutrition Recommendations</h5>
-                    <div className="paragraph">
-                        <ul className="tips-list">
-                            <li>
-                                Energy intake (calories) should be in balance with energy expenditure. To avoid
-                                unhealthy
-                                weight gain, total fat should not exceed 30% of total energy intake. Intake of saturated
-                                fats should be less than 10% of total energy intake, and intake of trans-fats less than
-                                1% of total energy intake, with a shift in fat consumption away from saturated fats and
-                                trans-fats to unsaturated fats, and towards the goal of eliminating
-                                industrially-produced
-                                trans-fats.
-                            </li>
-                            <li>
-                                Limiting intake of free sugars to less than 10% of total energy intake is part of a
-                                healthy
-                                diet. A further reduction to less than 5% of total energy intake is suggested for
-                                additional
-                                health benefits.
-                            </li>
-                            <li>
-                                Keeping salt intake to less than 5 g per day (equivalent to sodium intake of less than 2
-                                g
-                                per day) helps to prevent hypertension, and reduces the risk of heart disease and stroke
-                                in the adult population.
-                            </li>
-                        </ul>
-
-                        <a href="https://www.who.int/health-topics/news-room/fact-sheets/detail/healthy-diet">More
-                            recommendations</a>
-                    </div>
-                </div>
+export const About = () => (
+    <div>
+        <Header/>
+        <div className="about">
+            <div className="paragraph">
+                <h4 className="text-primary">Nutrition Calculator</h4>
+                <p>
+                    The project is a simple nutrition calculator that using <a
+                    href={"https://en.wikipedia.org/wiki/Harris%E2%80%93Benedict_equation"}>Harris–Benedict
+                    equation</a> revised by Mifflin and St Jeor.
+                </p>
             </div>
-        )
-    }
-}
+            <h5 className="text-primary">Step 1. Individual's basal metabolic rate (BMR)</h5>
+            <div className="paragraph">
+                <ConstTable headers={BMR_HEADERS} rows={BMR_ROWS}/>
+            </div>
 
-export default About;
+            <h5 className="text-primary">Step 2. Total Intake</h5>
+            <div className="paragraph">
+                <ConstTable headers={TOTAL_INTAKE_HEADERS} rows={TOTAL_INTAKE_ROWS}/>
+            </div>
+
+            <h5 className="text-primary">Step 3. Reference Daily Intake</h5>
+            <div className="paragraph">
+                <ConstTable headers={NUTRITION_HEADERS} rows={NUTRITION_ROWS}/>
+            </div>
+
+            <h5 className="text-primary">Nutrition Recommendations</h5>
+            <div className="paragraph">
+                <ul className="tips-list">
+                    <li>
+                        Energy intake (calories) should be in balance with energy expenditure. To avoid
+                        unhealthy
+                        weight gain, total fat should not exceed 30% of total energy intake. Intake of saturated
+                        fats should be less than 10% of total energy intake, and intake of trans-fats less than
+                        1% of total energy intake, with a shift in fat consumption away from saturated fats and
+                        trans-fats to unsaturated fats, and towards the goal of eliminating
+                        industrially-produced
+                        trans-fats.
+                    </li>
+                    <li>
+                        Limiting intake of free sugars to less than 10% of total energy intake is part of a
+                        healthy
+                        diet. A further reduction to less than 5% of total energy intake is suggested for
+                        additional
+                        health benefits.
+                    </li>
+                    <li>
+                        Keeping salt intake to less than 5 g per day (equivalent to sodium intake of less than 2
+                        g
+                        per day) helps to prevent hypertension, and reduces the risk of heart disease and stroke
+                        in the adult population.
+                    </li>
+                </ul>
+
+                <a href="https://www.who.int/health-topics/news-room/fact-sheets/detail/healthy-diet">More
+                    recommendations</a>
+            </div>
+        </div>
+    </div>
+);
 
 const ConstTable = ({ headers, rows }) => (
     <table className="const-table">

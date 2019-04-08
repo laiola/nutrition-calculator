@@ -1,0 +1,33 @@
+.not-found-container {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+.not-found-content {
+    flex: 1;
+    text-align: center;
+    vertical-align: center;
+    background-image: linear-gradient(to bottom, #f8f9fa, #4aa48a);
+    /*    background-image: linear-gradient(to right, #4aa48a, palevioletred); #f8f9fa , #4aa48a, #f8f9fa, #F3969A*/
+}
+
+.main-text {
+    color: white;
+    font-size: 23vw;
+    font-weight: 300;
+}
+
+.text {
+    color: white;
+    font-size: 20px;
+}
+
+.home-link {
+    color: white;
+    font-size: 25px;
+}
+
+.home-link:hover {
+    color: #f8f9fa;
+}
