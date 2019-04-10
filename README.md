@@ -36,4 +36,4 @@ Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 Launches the test runner in the interactive watch mode.<br>
 
 # Demo
-To view project open [Nutrition_Calculator](link).
+To view project open [Nutrition_Calculator](https://laiola.github.io/nutrition-calculator).
