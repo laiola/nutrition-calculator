@@ -20,17 +20,17 @@ export const Characteristics = ({ handleChange, handleSubmit, characteristics })
             </Form.Group>
             <Form.Row>
                 <Col>
-                    <Form.Label>Weight in kg:</Form.Label>
+                    <Form.Label>Weight (kg):</Form.Label>
                     <Form.Control type="number" step="1" name="weight" value={characteristics.weight}
                                   onChange={handleChange}/>
                 </Col>
                 <Col>
-                    <Form.Label>Height in kg:</Form.Label>
+                    <Form.Label>Height (cm):</Form.Label>
                     <Form.Control type="number" step="1" name="height" value={characteristics.height}
                                   onChange={handleChange}/>
                 </Col>
                 <Col>
-                    <Form.Label>Age in years:</Form.Label>
+                    <Form.Label>Age (years):</Form.Label>
                     <Form.Control type="number" step="1" name="age" value={characteristics.age}
                                   onChange={handleChange}/>
                 </Col>
