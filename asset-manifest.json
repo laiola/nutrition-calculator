@@ -1,7 +1,7 @@
 {
   "main.css": "/nutrition-calculator/static/css/main.f2e2bd84.chunk.css",
-  "main.js": "/nutrition-calculator/static/js/main.d127dc29.chunk.js",
-  "main.js.map": "/nutrition-calculator/static/js/main.d127dc29.chunk.js.map",
+  "main.js": "/nutrition-calculator/static/js/main.be1b825a.chunk.js",
+  "main.js.map": "/nutrition-calculator/static/js/main.be1b825a.chunk.js.map",
   "static/css/1.4c767a5d.chunk.css": "/nutrition-calculator/static/css/1.4c767a5d.chunk.css",
   "static/js/1.3488ccb4.chunk.js": "/nutrition-calculator/static/js/1.3488ccb4.chunk.js",
   "static/js/1.3488ccb4.chunk.js.map": "/nutrition-calculator/static/js/1.3488ccb4.chunk.js.map",
@@ -11,6 +11,6 @@
   "static/media/logo.jpg": "/nutrition-calculator/static/media/logo.6c6ec8ec.jpg",
   "static/css/main.f2e2bd84.chunk.css.map": "/nutrition-calculator/static/css/main.f2e2bd84.chunk.css.map",
   "index.html": "/nutrition-calculator/index.html",
-  "precache-manifest.97b8609bec067da167e860dcbae7288e.js": "/nutrition-calculator/precache-manifest.97b8609bec067da167e860dcbae7288e.js",
+  "precache-manifest.003eb0846ed2d2e84bbb3ec6a67b0496.js": "/nutrition-calculator/precache-manifest.003eb0846ed2d2e84bbb3ec6a67b0496.js",
   "service-worker.js": "/nutrition-calculator/service-worker.js"
 }

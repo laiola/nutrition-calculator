@@ -8,15 +8,15 @@ self.__precacheManifest = [
     "url": "/nutrition-calculator/static/js/runtime~main.3e68ec08.js"
   },
   {
-    "revision": "d127dc2952b08d611c23",
-    "url": "/nutrition-calculator/static/js/main.d127dc29.chunk.js"
+    "revision": "be1b825a19e8ae957a7a",
+    "url": "/nutrition-calculator/static/js/main.be1b825a.chunk.js"
   },
   {
     "revision": "3488ccb4f15216030c4c",
     "url": "/nutrition-calculator/static/js/1.3488ccb4.chunk.js"
   },
   {
-    "revision": "d127dc2952b08d611c23",
+    "revision": "be1b825a19e8ae957a7a",
     "url": "/nutrition-calculator/static/css/main.f2e2bd84.chunk.css"
   },
   {
@@ -24,7 +24,7 @@ self.__precacheManifest = [
     "url": "/nutrition-calculator/static/css/1.4c767a5d.chunk.css"
   },
   {
-    "revision": "2dea2da14f506976c1e4242a48c5398c",
+    "revision": "8e7b9b5d7920e558a4da5135693c636d",
     "url": "/nutrition-calculator/index.html"
   }
 ];
