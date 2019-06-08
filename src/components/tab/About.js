@@ -20,9 +20,9 @@ const TOTAL_INTAKE_ROWS = [
     ['Vigorously active', 'Agricultural worker (non mechanized) or person swimming two hours daily', '2.25', 'BMR x 2.25']
 ];
 
-const FAT = 'weight x fatRatio';
-const PROTEIN = 'weight x proteinRatio';
-const CARBOHYDRATE = '(goalIntake - fat * 9 - protein * 4)/4';
+const FAT = 'weight * fatRatio';
+const PROTEIN = 'weight * proteinRatio';
+const CARBOHYDRATE = '(goalIntake - fat * 9 - protein * 4) / 4';
 
 const NUTRITION_HEADERS = ['Nutrient', 'RDI'];
 const NUTRITION_ROWS = [
@@ -62,26 +62,21 @@ export const About = () => (
             <div className="paragraph">
                 <ul className="tips-list">
                     <li>
-                        Energy intake (calories) should be in balance with energy expenditure. To avoid
-                        unhealthy
+                        Energy intake (calories) should be in balance with energy expenditure. To avoid unhealthy
                         weight gain, total fat should not exceed 30% of total energy intake. Intake of saturated
                         fats should be less than 10% of total energy intake, and intake of trans-fats less than
                         1% of total energy intake, with a shift in fat consumption away from saturated fats and
-                        trans-fats to unsaturated fats, and towards the goal of eliminating
-                        industrially-produced
+                        trans-fats to unsaturated fats, and towards the goal of eliminating industrially-produced
                         trans-fats.
                     </li>
                     <li>
                         Limiting intake of free sugars to less than 10% of total energy intake is part of a
-                        healthy
-                        diet. A further reduction to less than 5% of total energy intake is suggested for
-                        additional
-                        health benefits.
+                        healthy diet. A further reduction to less than 5% of total energy intake is suggested for
+                        additional health benefits.
                     </li>
                     <li>
                         Keeping salt intake to less than 5 g per day (equivalent to sodium intake of less than 2
-                        g
-                        per day) helps to prevent hypertension, and reduces the risk of heart disease and stroke
+                        g per day) helps to prevent hypertension, and reduces the risk of heart disease and stroke
                         in the adult population.
                     </li>
                 </ul>
